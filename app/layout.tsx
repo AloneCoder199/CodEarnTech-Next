@@ -7,7 +7,7 @@ import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "sonner";
 import LayoutWrapper from "@/components/layout/layout-wrapper";
 import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/seo-schemas";
-
+import SecurityGuard from "@/components/SecurityGuard";
 // 1. Font Optimization: display: 'swap' zaroori hai layout shift rokne ke liye
 const inter = Inter({ 
   subsets: ["latin"],
@@ -170,6 +170,7 @@ export default function RootLayout({
           {/* 4. Optimization: Check karein agar QueryProvider ya AuthProvider ko 'client component' mein move kar sakein */}
           <AuthProvider>
             <QueryProvider>
+              <SecurityGuard/>
               <LayoutWrapper>{children}</LayoutWrapper>
               {/* 5. Toaster: Isay 'lazy' load hona chahiye, ye TBT barhata hai */}
                <Toaster position="top-center" richColors closeButton />
