@@ -8,6 +8,7 @@ import { Toaster } from "sonner";
 import LayoutWrapper from "@/components/layout/layout-wrapper";
 import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/seo-schemas";
 import SecurityGuard from "@/components/SecurityGuard";
+
 // 1. Font Optimization: display: 'swap' zaroori hai layout shift rokne ke liye
 const inter = Inter({ 
   subsets: ["latin"],
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
   },
   description: "Leading software company in Samundri, Pakistan. We build scalable SaaS products, custom web applications, and provide practical training with guaranteed internships. 4+ years experience, 3-month project support included.",
   
-  // Keywords (Search engines ignore but some use)
+  // Keywords
   keywords: [
     "SaaS development Pakistan",
     "software company Samundri",
@@ -73,28 +74,23 @@ export const metadata: Metadata = {
   // Canonical & Alternates
   alternates: {
     canonical: "/",
-    languages: {
-      "en-US": "/en-US",
-      "ur-PK": "/ur-PK",
-    },
   },
   
   // Open Graph (Facebook, LinkedIn, WhatsApp)
   openGraph: {
     type: "website",
     locale: "en_US",
-    alternateLocale: "ur_PK",
     url: "https://www.codearntech.cloud",
     siteName: "CodEarn Tech",
     title: "CodEarn Tech | SaaS Development & Software Solutions",
     description: "Transform your ideas into scalable SaaS products. 4+ years experience, practical training with internships, and 3-month project support.",
     images: [
       {
-        url: "/og-image.webp", // Aapko yeh image banana hai (1200x630)
+        url: "/og-image.webp", 
         width: 1200,
         height: 630,
         alt: "CodEarn Tech - Software Development Company",
-        type: "image/jpeg",
+        type: "image/webp",
       },
     ],
   },
@@ -104,36 +100,28 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CodEarn Tech | SaaS Development & Software Solutions",
     description: "Transform your ideas into scalable SaaS products. Practical training with guaranteed internships.",
-    images: ["/twitter-image.jpg"], // Same as OG image
-    creator: "@codearntech", // Agar Twitter handle hai toh
+    images: ["/og-image.webp"],
+    creator: "@codearntech",
   },
   
-  // Verification (Jab Google Search Console setup karein)
+  // Verification
   verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE", // Baad mein add karein
-    yandex: "YOUR_YANDEX_CODE",
+    google: "_GZUOBwhCQ8T5t1ME4Xg46wwwo3o_WznYgcmBKM2PbY",
   },
   
   // Icons
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/logo.webp", type: "image/webp" },
     ],
+    shortcut: ["/logo.webp"],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180" },
-    ],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg",
-        color: "#0f172a",
-      },
+      { url: "/logo.webp", sizes: "180x180", type: "image/webp" },
     ],
   },
   
   // Manifest
-  manifest: "/site.webmanifest",
+  manifest: "/manifest.json",
   
   // Archives & Categories
   archives: ["https://www.codearntech.cloud/blogs"],
@@ -150,15 +138,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* 2. SEO Schemas: Inhe ek hi script tag mein merge karein taake parsing fast ho */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 
             __html: JSON.stringify([organizationSchema, websiteSchema, localBusinessSchema]) 
           }}
         />
-        
-        {/* 3. Performance: Preconnects are good, but Next/Font handles Google Fonts better automatically */}
       </head>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
@@ -167,12 +152,10 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {/* 4. Optimization: Check karein agar QueryProvider ya AuthProvider ko 'client component' mein move kar sakein */}
           <AuthProvider>
             <QueryProvider>
               <SecurityGuard/>
               <LayoutWrapper>{children}</LayoutWrapper>
-              {/* 5. Toaster: Isay 'lazy' load hona chahiye, ye TBT barhata hai */}
                <Toaster position="top-center" richColors closeButton />
             </QueryProvider>
           </AuthProvider>
@@ -181,6 +164,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-
-

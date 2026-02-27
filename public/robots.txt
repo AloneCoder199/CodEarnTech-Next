@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /.next/
+
+# Google ko batayein sitemap kahan hai
+Sitemap: https://www.codearntech.cloud
