@@ -13,8 +13,11 @@ import {
   Info, 
   PhoneCall, 
   MoreHorizontal, 
+  CheckCircle2,
   X, 
-  CalendarCheck 
+  Mail,
+  CalendarCheck ,
+  UserPlus
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -27,9 +30,11 @@ const navLinks = [
   { name: "Case Studies", href: "/case-studies", icon: Briefcase },
   { name: "Products", href: "/products", icon: Box },
   { name: "Academy", href: "/training", icon: GraduationCap },
-  { name: "About", href: "/about", icon: Info },
-  { name: "Contact", href: "/contact", icon: PhoneCall },
-] as const
+  { name: "About Us", href: "/about", icon: Info }, // "About Us" sounds more premium
+  { name: "Contact", href: "/contact", icon: Mail }, // Changed to Mail for communication context
+  { name: "Verify Certificate", href: "/verify", icon: CheckCircle2 }, // Fixed typo and added trust icon
+  { name: "Register", href: "/register", icon: UserPlus }, // Fixed path alignment and user icon
+] as const;
 
 /* -------------------- DESKTOP NAV LINK -------------------- */
 const DesktopNavLink = memo(
