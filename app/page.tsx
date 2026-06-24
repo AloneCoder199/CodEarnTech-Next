@@ -1,10 +1,14 @@
 import { Hero } from "@/components/sections/home/hero"
-import { Services } from "@/components/sections/home/services"
-import { Features } from "@/components/sections/home/features"
-import { Training } from "@/components/sections/home/training"
-import { CTA } from "@/components/sections/home/cta"
 import type { Metadata } from "next"
 import SubscribeSection from "@/components/layout/subscription"
+import { TrustedBy } from "@/components/sections/home/TrustedBy"
+import { ProblemsWeSolve } from "@/components/sections/home/ProblemsWeSolve"
+import { SolutionsEngine } from "@/components/sections/home/TechCanvasVisual"
+import { CaseStudiesMatrix } from "@/components/sections/home/CaseStudiesMatrix"
+import { WhyCodEarnPinned } from "@/components/sections/home/WhyCodEarn"
+import { AcademyUniversalDeck } from "@/components/sections/home/AcademyPreview"
+import { UnifiedTestimonials } from "@/components/sections/home/UnifiedTestimonials"
+import { EliteQuantumCTA } from "@/components/sections/home/QuantumMobileCTA"
 // ✅ PAGE-SPECIFIC METADATA
 export const metadata: Metadata = {
   title: "CodEarn Tech | SaaS Development & Software Solutions in Pakistan",
@@ -49,11 +53,15 @@ export default function Home() {
         }}
       />
       <Hero />
-      <Services />
-      <Features />
-      <Training />
-      <CTA />
+      <TrustedBy/>
+      <ProblemsWeSolve/>
+      <SolutionsEngine/>
+      <CaseStudiesMatrix/>
+      <WhyCodEarnPinned/>
+      <AcademyUniversalDeck/>
+      <UnifiedTestimonials/>
       <SubscribeSection/>
+      <EliteQuantumCTA/>
     </>
   )
 }

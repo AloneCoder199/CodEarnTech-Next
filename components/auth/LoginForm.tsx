@@ -169,7 +169,7 @@ export default function LoginForm() {
               Welcome Back
             </CardTitle>
             <CardDescription className="text-sm sm:text-base text-muted-foreground">
-              Sign in to manage your ISP operations
+             Access Your Student Portal
             </CardDescription>
           </CardHeader>
           
@@ -434,7 +434,7 @@ export default function LoginForm() {
                   <span className="w-full border-t border-border" />
                 </div>
                 <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-card px-2 text-muted-foreground">New to CodeEarn?</span>
+                  <span className="bg-card px-2 text-muted-foreground">New to CodEarn?</span>
                 </div>
               </motion.div>
 
@@ -465,13 +465,12 @@ export default function LoginForm() {
                 className="text-center space-y-2 pt-2"
               >
                 <p className="text-sm text-muted-foreground">
-                  Thank you for choosing <span className="font-semibold text-foreground">CodeEarn Tech</span>
+                  Thank you for choosing <span className="font-semibold text-foreground">CodEarn Tech</span>
                 </p>
                 <p className="text-xs text-muted-foreground">
-                  Trusted by 200+ ISPs worldwide
+                  Trusted by 10000+ Students worldwide
                 </p>
               </motion.div>
-
               {/* Support CTA */}
               <motion.div
                 initial={{ opacity: 0 }}

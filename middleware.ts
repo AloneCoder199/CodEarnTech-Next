@@ -44,16 +44,17 @@ export async function middleware(request: NextRequest) {
   if (!payload && refreshToken) {
     const newToken = await refreshAccessToken(refreshToken);
     if (newToken) {
-      payload = await verifyToken(newToken, SECRET);
-      // Naya response object banayein taake cookie set ho sake
-      response = NextResponse.next(); 
-      response.cookies.set('accessToken', newToken, {
+      // Yahan hum naya response banayenge jo current URL par hi redirect karega
+      // Taake naya token browser mein set ho jaye aur page dobara reload ho
+      const refreshResponse = NextResponse.redirect(request.url); 
+      refreshResponse.cookies.set('accessToken', newToken, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         path: '/',
         maxAge: 3600,
       });
+      return refreshResponse; // Foran return karein taake loop break ho
     }
   }
 

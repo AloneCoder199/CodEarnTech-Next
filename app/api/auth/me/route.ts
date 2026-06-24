@@ -58,12 +58,13 @@ export async function GET(request: NextRequest) {
     const user = await User.findById(payload.userId).select('-password');
     if (!user) return addSecurityHeaders(errorResponse('User not found', 404));
 
-    // 5. Build Response (DO NOT use NextResponse.next() here)
+    // 5. Build Response (🔥 FIXED: studentId explicitly added here)
     const responseData = successResponse({
       user: {
         id: user._id,
         email: user.email,
         role: user.role,
+        studentId: user.studentId, // <--- Yeh missing tha, ab seedha dashboard pe show hoga!
         profile: user.profile,
         isEmailVerified: user.isEmailVerified,
       },

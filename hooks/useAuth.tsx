@@ -13,11 +13,12 @@ import { useRouter } from 'next/navigation';
 interface User {
   id: string;
   email: string;
+  studentId?: string; // FIX: Made optional kyunke Admin ke paas studentId nahi hogi
   profile?: {
     firstName: string;
     lastName: string;
     avatar?: string;
-     phone?: string;
+    phone?: string;
   };
   role: 'admin' | 'student';
   isEmailVerified?: boolean;

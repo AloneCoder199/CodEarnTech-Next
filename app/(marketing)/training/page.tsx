@@ -1,4 +1,8 @@
-import TrainingPage from "@/components/sections/traning/traningmain";
+import AcademyComparison from "@/components/sections/academy/academy-comparison";
+import AcademyCourses from "@/components/sections/academy/academy-courses";
+import AcademyHero from "@/components/sections/academy/academy-hero";
+import AcademyRoadmap from "@/components/sections/academy/academy-roadmap";
+import {CourseDetailModal} from "@/components/sections/traning/traningmain";
 import type { Metadata } from "next";
 
 // ✅ TRAINING PAGE SEO - Education Keywords
@@ -129,7 +133,10 @@ export default function Training() {
         }}
       />
       
-      <TrainingPage />
+      <AcademyHero/>
+      <AcademyComparison/>
+      <AcademyRoadmap/>
+      <AcademyCourses/>
     </div>
   );
 }

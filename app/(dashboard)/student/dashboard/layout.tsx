@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   LayoutDashboard, BookOpen, Award, Calendar, 
   Bell, LogOut, Menu, X, ChevronRight,
-  TrendingUp, User, Settings, CreditCard, HelpCircle, ChevronDown
+  TrendingUp, User, HelpCircle, ChevronDown
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -21,12 +21,26 @@ const navItems = [
   { href: '/student/dashboard/schedule', icon: Calendar, label: 'Schedule', color: 'text-orange-500' },
 ];
 
+// useAuth se jo user object aata hai uska type
+interface AuthUser {
+  id?: string;
+  email?: string;
+  studentId?: string;
+  role?: string;
+  profile?: {
+    firstName?: string;
+    lastName?: string;
+    avatar?: string;
+    phone?: string;
+  };
+}
+
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const pathname = usePathname();
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth() as { user: AuthUser | null; logout: () => void };
 
   const getInitials = () => {
     const first = user?.profile?.firstName?.[0] || '';
@@ -35,17 +49,23 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   };
 
   const getFullName = () => {
-    return `${user?.profile?.firstName || ''} ${user?.profile?.lastName || ''}`.trim() || 'User';
+    return `${user?.profile?.firstName || 'Student'} ${user?.profile?.lastName || 'Student-1'}`.trim() || 'User';
+  };
+
+  // DB se studentId — fallback agar nahi mili
+  const getStudentId = () => {
+    return user?.studentId || 'CET-0000';
   };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Mobile Header - Clean & Minimal */}
+
+      {/* ─── Mobile Header ─── */}
       <div className="lg:hidden h-16 bg-card border-b border-border flex items-center justify-between px-4 sticky top-0 z-50">
         <div className="flex items-center gap-3">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             onClick={() => setSidebarOpen(true)}
             className="hover:bg-muted"
           >
@@ -58,22 +78,20 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             <span className="font-bold text-lg">CodeEarn</span>
           </Link>
         </div>
-        
-        {/* Mobile Right Actions */}
+
         <div className="flex items-center gap-2">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className="relative hover:bg-muted" 
+          <Button
+            variant="ghost"
+            size="icon"
+            className="relative hover:bg-muted"
             onClick={() => setNotificationsOpen(true)}
           >
             <Bell className="w-5 h-5" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full animate-pulse" />
           </Button>
-          
-          {/* Mobile Profile Button */}
-          <Button 
-            variant="ghost" 
+
+          <Button
+            variant="ghost"
             size="icon"
             className="hover:bg-muted"
             onClick={() => setProfileOpen(true)}
@@ -86,13 +104,15 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       </div>
 
       <div className="flex">
-        {/* Sidebar - Professional SaaS Style */}
+
+        {/* ─── Sidebar ─── */}
         <aside className={cn(
           "fixed lg:sticky top-0 left-0 z-40 h-screen w-72 bg-card border-r border-border transition-transform duration-300 lg:translate-x-0",
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}>
           <div className="h-full flex flex-col">
-            {/* Logo Section */}
+
+            {/* Logo */}
             <div className="h-16 flex items-center justify-between px-6 border-b border-border">
               <Link href="/student/dashboard" className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20">
@@ -103,17 +123,17 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                   <p className="text-[10px] text-muted-foreground -mt-1">Student Portal</p>
                 </div>
               </Link>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="lg:hidden hover:bg-muted" 
+              <Button
+                variant="ghost"
+                size="icon"
+                className="lg:hidden hover:bg-muted"
                 onClick={() => setSidebarOpen(false)}
               >
                 <X className="w-5 h-5" />
               </Button>
             </div>
 
-            {/* User Profile Card - Mini Version */}
+            {/* Mini Profile Card */}
             <div className="p-4 mx-4 mt-4 rounded-xl bg-gradient-to-br from-primary/5 via-purple-500/5 to-blue-500/5 border border-primary/10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-sm font-medium text-primary border-2 border-primary/20">
@@ -124,24 +144,25 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                   <p className="text-[10px] text-muted-foreground truncate">{user?.email}</p>
                 </div>
               </div>
+              {/* ── Student ID — DB se fetch hoti hai ── */}
               <div className="mt-3 pt-3 border-t border-primary/10 flex items-center justify-between text-[10px]">
                 <span className="text-muted-foreground">Student ID</span>
-                <span className="font-mono font-medium bg-primary/10 px-2 py-0.5 rounded text-primary">
-                  STU-{user?.id?.slice(-6) || '000000'}
+                <span className="font-mono font-medium bg-primary/10 px-2 py-0.5 rounded text-primary tracking-wide">
+                  {getStudentId()}
                 </span>
               </div>
             </div>
 
-            {/* Main Navigation */}
+            {/* Nav */}
             <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
               <p className="px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                 Main Menu
               </p>
-              
+
               {navItems.map((item) => {
                 const Icon = item.icon;
                 const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
-                
+
                 return (
                   <Link
                     key={item.href}
@@ -149,24 +170,21 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     onClick={() => setSidebarOpen(false)}
                     className={cn(
                       "flex items-center justify-between px-3 py-2.5 rounded-lg transition-all group relative overflow-hidden",
-                      isActive 
-                        ? "bg-primary text-primary-foreground font-medium shadow-md shadow-primary/20" 
+                      isActive
+                        ? "bg-primary text-primary-foreground font-medium shadow-md shadow-primary/20"
                         : "text-muted-foreground hover:bg-muted hover:text-foreground"
                     )}
                   >
-                    {/* Active Indicator */}
                     {isActive && (
                       <motion.div
                         layoutId="activeNav"
                         className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-6 bg-white rounded-r-full"
                       />
                     )}
-                    
                     <div className="flex items-center gap-3 relative z-10">
                       <Icon className={cn("w-5 h-5", isActive ? "text-white" : item.color)} />
                       <span className="text-sm">{item.label}</span>
                     </div>
-                    
                     <div className="flex items-center gap-1">
                       {item.badge && !isActive && (
                         <Badge variant="secondary" className="text-[10px] px-1.5 py-0 h-5 bg-primary/10 text-primary border-0">
@@ -183,10 +201,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 <p className="px-3 text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
                   Quick Links
                 </p>
-                
-                <Button 
-                  variant="ghost" 
-                  className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground hover:bg-muted px-3 h-10" 
+
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground hover:bg-muted px-3 h-10"
                   asChild
                 >
                   <Link href="/training">
@@ -194,10 +212,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     <span className="text-sm">Browse Courses</span>
                   </Link>
                 </Button>
-                
-                <Button 
-                  variant="ghost" 
-                  className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground hover:bg-muted px-3 h-10" 
+
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start gap-3 text-muted-foreground hover:text-foreground hover:bg-muted px-3 h-10"
                   asChild
                 >
                   <Link href="/book-call">
@@ -208,44 +226,36 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               </div>
             </nav>
 
-            {/* Bottom Upgrade Card */}
-            <div className="p-4 m-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20">
-              <div className="flex items-start gap-3">
-               
-                
-              </div>
-            </div>
+            {/* Bottom card (empty — content add karo baad mein) */}
+            <div className="p-4 m-4 rounded-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 border border-purple-500/20 min-h-[60px]" />
           </div>
         </aside>
 
-        {/* Overlay */}
+        {/* Overlay (mobile) */}
         {sidebarOpen && (
-          <div 
+          <div
             className="fixed inset-0 bg-black/40 backdrop-blur-sm z-30 lg:hidden"
             onClick={() => setSidebarOpen(false)}
           />
         )}
 
-        {/* Main Content Area */}
+        {/* ─── Main Content ─── */}
         <main className="flex-1 min-w-0 flex flex-col">
-          {/* Desktop Header - Minimal & Professional */}
+
+          {/* Desktop Header */}
           <header className="hidden lg:flex h-16 items-center justify-between px-6 border-b border-border bg-card/80 backdrop-blur-xl sticky top-0 z-30">
-            {/* Left: Breadcrumb/Title */}
             <div className="flex items-center gap-4">
               <h1 className="text-lg font-semibold text-foreground">
                 {navItems.find(n => pathname === n.href || pathname.startsWith(`${n.href}/`))?.label || 'Dashboard'}
               </h1>
-              <Badge variant="outline" className="text-xs font-normal">
-                v2.0
-              </Badge>
+              <Badge variant="outline" className="text-xs font-normal">v2.0</Badge>
             </div>
 
-            {/* Right: Actions */}
             <div className="flex items-center gap-3">
               {/* Notifications */}
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 className="relative hover:bg-muted rounded-full w-10 h-10"
                 onClick={() => setNotificationsOpen(true)}
               >
@@ -255,10 +265,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
               <div className="h-6 w-px bg-border mx-1" />
 
-              {/* Profile Dropdown Trigger */}
+              {/* Profile Dropdown */}
               <div className="relative">
-                <Button 
-                  variant="ghost" 
+                <Button
+                  variant="ghost"
                   className="flex items-center gap-3 h-10 px-3 hover:bg-muted rounded-full"
                   onClick={() => setProfileOpen(!profileOpen)}
                 >
@@ -272,7 +282,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                   <ChevronDown className={cn("w-4 h-4 text-muted-foreground transition-transform", profileOpen && "rotate-180")} />
                 </Button>
 
-                {/* Profile Dropdown Menu */}
                 <AnimatePresence>
                   {profileOpen && (
                     <>
@@ -290,7 +299,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                         transition={{ duration: 0.15 }}
                         className="absolute right-0 top-full mt-2 w-64 bg-card border border-border rounded-xl shadow-2xl shadow-black/10 z-50 overflow-hidden"
                       >
-                        {/* Profile Header */}
+                        {/* Dropdown Header */}
                         <div className="p-4 border-b border-border bg-muted/50">
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-sm font-medium text-white">
@@ -301,11 +310,18 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                               <p className="text-xs text-muted-foreground truncate">{user?.email}</p>
                             </div>
                           </div>
+                          {/* Student ID in dropdown too */}
+                          <div className="mt-2 flex items-center justify-between">
+                            <span className="text-[10px] text-muted-foreground">Student ID</span>
+                            <span className="font-mono text-[10px] font-medium bg-primary/10 px-2 py-0.5 rounded text-primary">
+                              {getStudentId()}
+                            </span>
+                          </div>
                         </div>
 
                         {/* Menu Items */}
                         <div className="p-2">
-                          <Link 
+                          <Link
                             href="/student/dashboard/profile"
                             onClick={() => setProfileOpen(false)}
                             className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
@@ -313,8 +329,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                             <User className="w-4 h-4" />
                             My Profile
                           </Link>
-
-                          <Link 
+                          <Link
                             href="/book-call"
                             onClick={() => setProfileOpen(false)}
                             className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
@@ -326,12 +341,9 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
                         {/* Logout */}
                         <div className="p-2 border-t border-border bg-muted/30">
-                          <button 
-                            onClick={() => {
-                              setProfileOpen(false);
-                              logout();
-                            }}
-                            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 hover:text-red-700 transition-colors w-full"
+                          <button
+                            onClick={() => { setProfileOpen(false); logout(); }}
+                            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-red-600 hover:bg-red-50 hover:text-red-700 dark:hover:bg-red-950/30 transition-colors w-full"
                           >
                             <LogOut className="w-4 h-4" />
                             Sign Out
@@ -352,7 +364,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </main>
       </div>
 
-      {/* Notifications Panel - Slide Over */}
+      {/* ─── Notifications Panel ─── */}
       <AnimatePresence>
         {notificationsOpen && (
           <>
@@ -385,9 +397,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     <X className="w-5 h-5" />
                   </Button>
                 </div>
-                
+
                 <div className="flex-1 overflow-y-auto p-4 space-y-3">
-                  {/* Sample Notifications */}
                   <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 hover:bg-primary/10 transition-colors cursor-pointer">
                     <div className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
@@ -398,7 +409,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="p-4 rounded-xl bg-muted/50 hover:bg-muted transition-colors cursor-pointer">
                     <div className="flex items-start gap-3">
                       <div className="w-2 h-2 bg-muted-foreground rounded-full mt-2 shrink-0" />
@@ -410,7 +421,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="p-4 border-t border-border">
                   <Button variant="outline" className="w-full" size="sm">
                     Mark all as read
@@ -422,7 +433,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         )}
       </AnimatePresence>
 
-      {/* Mobile Profile Sheet */}
+      {/* ─── Mobile Profile Sheet ─── */}
       <AnimatePresence>
         {profileOpen && (
           <>
@@ -441,9 +452,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
               className="fixed bottom-0 left-0 right-0 bg-card border-t border-border rounded-t-2xl z-50 lg:hidden max-h-[80vh] overflow-auto"
             >
               <div className="p-6 space-y-4">
-                {/* Handle */}
                 <div className="w-12 h-1.5 bg-muted rounded-full mx-auto mb-4" />
-                
+
                 {/* Profile Header */}
                 <div className="flex items-center gap-4 pb-4 border-b border-border">
                   <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center text-xl font-bold text-white shadow-lg">
@@ -452,13 +462,19 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                   <div>
                     <h3 className="font-semibold text-lg">{getFullName()}</h3>
                     <p className="text-sm text-muted-foreground">{user?.email}</p>
-                    <Badge variant="secondary" className="mt-1 text-xs">Student</Badge>
+                    <div className="flex items-center gap-2 mt-1">
+                      <Badge variant="secondary" className="text-xs">Student</Badge>
+                      {/* Student ID mobile sheet mein bhi */}
+                      <span className="font-mono text-[10px] font-medium bg-primary/10 px-2 py-0.5 rounded text-primary">
+                        {getStudentId()}
+                      </span>
+                    </div>
                   </div>
                 </div>
 
                 {/* Menu Items */}
                 <div className="space-y-1">
-                  <Link 
+                  <Link
                     href="/student/dashboard/profile"
                     onClick={() => setProfileOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-xl hover:bg-muted transition-colors"
@@ -473,10 +489,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     <ChevronRight className="w-5 h-5 text-muted-foreground" />
                   </Link>
 
-                  
-                  
-
-                  <Link 
+                  <Link
                     href="/book-call"
                     onClick={() => setProfileOpen(false)}
                     className="flex items-center gap-3 p-3 rounded-xl hover:bg-muted transition-colors"
@@ -493,11 +506,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                 </div>
 
                 {/* Logout */}
-                <button 
-                  onClick={() => {
-                    setProfileOpen(false);
-                    logout();
-                  }}
+                <button
+                  onClick={() => { setProfileOpen(false); logout(); }}
                   className="w-full flex items-center gap-3 p-4 rounded-xl bg-red-500/10 text-red-600 hover:bg-red-500/20 transition-colors mt-4"
                 >
                   <LogOut className="w-5 h-5" />

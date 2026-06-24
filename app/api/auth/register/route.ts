@@ -14,19 +14,21 @@ export async function POST(request: NextRequest) {
     const ip = forwarded ? forwarded.split(',')[0].trim() : (request as any).ip || '127.0.0.1';
 
     // 2. Rate Limiting (Brute force protection)
-    // Ek IP se 1 ghante mein sirf 3 accounts ban saktay hain
-    if (!checkRateLimit(`register_${ip}`, 3, 60 * 60 * 1000)) { 
+    if (!checkRateLimit(`register_${ip}`, 3, 60 * 60 * 1000)) {
       return errorResponse('Too many registration attempts. Please try again later.', 429);
     }
 
     await connectDB();
 
     const body = await request.json();
-    
+
     // 3. Zod Validation
+    console.log('📦 Register body received:', JSON.stringify(body, null, 2));
     const result = registerSchema.safeParse(body);
     if (!result.success) {
-      return errorResponse('Validation failed', 400, result.error.flatten().fieldErrors);
+      const fieldErrors = result.error.flatten().fieldErrors;
+      console.error('❌ Zod validation failed:', JSON.stringify(fieldErrors, null, 2));
+      return errorResponse('Validation failed', 400, fieldErrors);
     }
 
     const { email, password, firstName, lastName, phone } = result.data;
@@ -41,37 +43,58 @@ export async function POST(request: NextRequest) {
     const verificationToken = crypto.randomBytes(32).toString('hex');
     const tokenExpiry = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 Hours valid
 
-    // 6. Create User (Password hashing Model level par ho rahi hai)
+    // ── NEW: DIRECT SEQUENTIAL STUDENT ID GENERATION ──────────────────────────
+    // Database se sabse aakhri user nikalen jiski ID "CET-" se start hoti ho
+    const lastUser = await User.findOne({ studentId: /^CET-/ })
+      .sort({ studentId: -1 })
+      .select('studentId')
+      .lean();
+
+    let nextNumber = 1;
+
+    if (lastUser && lastUser.studentId) {
+      // "CET-0001" se number extract karein
+      const lastIdNumber = parseInt(lastUser.studentId.replace('CET-', ''), 10);
+      if (!isNaN(lastIdNumber)) {
+        nextNumber = lastIdNumber + 1;
+      }
+    }
+
+    // Padded 4 digits format (CET-0001, CET-0002). Agar sirf CET-01 chahiye to padStart(2, '0') kar dein.
+    const generatedStudentId = `CET-${String(nextNumber).padStart(4, '0')}`;
+    // ──────────────────────────────────────────────────────────────────────────
+
+    // 6. Create User (Explicitly passing studentId here)
     const user = await User.create({
       email,
       password,
+      studentId: generatedStudentId, // <--- Direct Insertion Guarantee!
       profile: {
         firstName,
         lastName,
         phone,
+        avatar: "",
       },
       verificationToken,
       verificationTokenExpires: tokenExpiry,
-      isEmailVerified: false, // Default false for privacy
+      isEmailVerified: false,
     });
 
     // 7. Send Professional Verification Email
-    // Is function mein aapka verification link /api/auth/verify-email?token=... hona chahiye
     try {
-        await sendVerificationEmail(email, verificationToken, firstName);
+      await sendVerificationEmail(email, verificationToken, firstName);
     } catch (emailError) {
-        console.error('Email service failed:', emailError);
-        // User create ho chuka hai, lekin email nahi gayi. Hum error nahi bhejenge taake user login karke resend kar sakay
+      console.error('Email service failed:', emailError);
     }
 
-    // 8. Success Response (No Login Cookies yet for Security)
-    // Frontend is response ke baad user ko /verify-email page par redirect karega
+    // 8. Success Response
     return successResponse(
       {
         email: user.email,
+        studentId: user.studentId, 
         redirectTo: '/verify-email',
       },
-      'Account created! Please check your email to verify your account.',
+      'Account created successfully! Please check your email to verify your account.',
       201
     );
 
