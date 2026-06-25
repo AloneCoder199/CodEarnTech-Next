@@ -1,6 +1,6 @@
 {
-  "name": "CodeEarn Tech , codEarnTech , CodEarn ",
-  "short_name": "CodeEarn , codearn , codearntech",
+  "name": "CodEarn Tech",
+  "short_name": "CodEarn , codearn , codearntech",
   "description": "Professional Tech Training and Services to Learn and Earn.",
   "start_url": "/",
   "display": "standalone",

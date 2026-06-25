@@ -54,11 +54,11 @@ export const caseStudies: CaseStudy[] = [
     timeline: "3 Months",
     services: ["UI/UX Redesign", "Full-Stack Development", "Cloud Architecture"],
     techStack: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS Lambda", "Redis"],
-    coverImage: "/images/portfolio/fintech-hero.jpg",
+    coverImage: "/portfolio/fintech-hero.png",
     galleryImages: [
-      "/images/portfolio/fintech-dashboard.jpg",
-      "/images/portfolio/fintech-analytics.jpg",
-      "/images/portfolio/fintech-mobile.jpg"
+      "/portfolio/fintech-dashboard.png",
+      "/portfolio/fintech-analytics.png",
+      "/portfolio/fintech-mobile.png"
     ],
     challenge: "The client's legacy system suffered from high latency (4.5s average load time) and frequent security vulnerabilities during peak transaction hours, leading to a 35% drop in user retention.",
     detailedChallenge: [
@@ -98,10 +98,10 @@ export const caseStudies: CaseStudy[] = [
     timeline: "2 Months",
     services: ["Frontend Engineering", "Data Visualization", "Performance Optimization"],
     techStack: ["React", "Tailwind CSS", "GraphQL", "D3.js", "FastAPI", "Docker"],
-    coverImage: "/images/portfolio/saas-hero.jpg",
+    coverImage: "/portfolio/saas-hero.png",
     galleryImages: [
-      "/images/portfolio/saas-charts.jpg",
-      "/images/portfolio/saas-settings.jpg"
+      "/portfolio/saas-charts.png",
+      "/portfolio/saas-settings.png"
     ],
     challenge: "Heavy data pipelines caused severe browser lag. Enterprise clients were unable to render real-time charts with more than 10,000 concurrent data points.",
     detailedChallenge: [
@@ -139,10 +139,10 @@ export const caseStudies: CaseStudy[] = [
     timeline: "4 Months",
     services: ["Headless Commerce", "Mobile App Development", "CI/CD Deployment"],
     techStack: ["Next.js", "Shopify Hydrogen", "Tailwind CSS", "Stripe", "Vercel"],
-    coverImage: "/images/portfolio/eshop-hero.jpg",
+    coverImage: "/portfolio/eshop-hero.png",
     galleryImages: [
-      "/images/portfolio/eshop-checkout.jpg",
-      "/images/portfolio/eshop-catalog.jpg"
+      "/portfolio/eshop-checkout.png",
+      "/portfolio/eshop-catalog.png"
     ],
     challenge: "A slow, monolithic platform was destroying mobile conversion rates. Every 1-second delay in checkout was costing the client $50k monthly.",
     detailedChallenge: [ // Fixed from challenge_detailed to detailedChallenge

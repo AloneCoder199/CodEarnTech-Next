@@ -247,7 +247,7 @@ export function Hero() {
           >
             {/* Primary Action Button with Infinite Shimmer Line */}
             <MagneticWrapper>
-              <Link href="/strategy-call" className="block w-full h-full">
+              <Link href="/book-call" className="block w-full h-full">
                 <Button
                   size="lg"
                   className="relative w-full sm:w-auto h-12 px-8 rounded-full bg-primary text-primary-foreground font-medium text-sm shadow-md hover:opacity-95 transition-all duration-200 overflow-hidden group"
