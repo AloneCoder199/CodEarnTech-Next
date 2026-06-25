@@ -1,137 +1,156 @@
-"use client";
+"use client"
+import React from 'react';
+import { 
+  Terminal, 
+  UserCheck, 
+  Briefcase, 
+  ArrowRight, 
+  CheckCircle2, 
+  Sparkles 
+} from 'lucide-react';
 
-const roadmapSteps = [
+const phases = [
   {
-    phase: "01",
-    title: "Learn",
-    tag: "Deep Architecture Foundations",
-    desc: "No basic loops or syntax cramming. Master Next.js 15 App Router internals, complex design patterns, state engineering, and distributed database schemas.",
-    color: "from-primary to-primary/60"
+    id: "01",
+    phaseTitle: "Phase 1: Core Engineering",
+    tagline: "The Foundation Build",
+    bgGradient: "from-blue-500/10 to-transparent",
+    icon: Terminal,
+    steps: [
+      { name: "Beginner", desc: "Zero coding experience se start, core concepts aur fundamentals ka absolute scratch se setup." },
+      { name: "Build Projects", desc: "Theory ko skip kar ke direct hands-on application building aur production architectures par kaam." }
+    ]
   },
   {
-    phase: "02",
-    title: "Build",
-    tag: "Production-Grade Engineering",
-    desc: "Ship multi-tenant enterprise software systems from scratch. Implement 100% automation testing coverages, strict type-safety rules, and optimized query structures.",
-    color: "from-chart-4 to-chart-4/60"
+    id: "02",
+    phaseTitle: "Phase 2: Professional Identity",
+    tagline: "The Launchpad Setup",
+    bgGradient: "from-primary/10 to-transparent",
+    icon: UserCheck,
+    steps: [
+      { name: "Portfolio Creation", desc: "Apne top premium tools aur production-grade built projects ko ek high-end deployment site par showcase karna." },
+      { name: "GitHub Setup", desc: "Repositories optimization, clean commits history, commercial-grade READMEs aur open-source mapping." },
+      { name: "Certificate", desc: "Industry-recognized skills verification card jo direct LinkedIn aur recruiters feed par stand-out kare." }
+    ]
   },
   {
-    phase: "03",
-    title: "Portfolio",
-    tag: "Performance-Backed Proofs",
-    desc: "Deploy your systems onto global edge networks. Optimize your apps for sub-40ms API server latencies and verified 100% Core Web Vitals Lighthouse scores.",
-    color: "from-chart-2 to-chart-2/60"
-  },
-  {
-    phase: "04",
-    title: "Internship",
-    tag: "Internal Dev Sprint Wing",
-    desc: "Step directly into our internal agile workspace. Experience real code push workflows, professional peer pull-request (PR) reviews, and live architecture standups.",
-    color: "from-primary to-accent"
-  },
-  {
-    phase: "05",
-    title: "Client Projects",
-    tag: "Real Market Pressure Handling",
-    desc: "Interface with live commercial briefs. Gather requirements directly, manage system scoping limits, and deploy feature patches under absolute live production conditions.",
-    color: "from-chart-5 to-chart-5/60"
-  },
-  {
-    phase: "06",
-    title: "Job / Freelancing",
-    tag: "The Ultimate Market Launch",
-    desc: "Enter the global market not as a clueless junior engineer searching for tutorials, but as an authoritative software architect ready to handle real enterprise-level traffic.",
-    color: "from-foreground to-muted-foreground"
+    id: "03",
+    phaseTitle: "Phase 3: Commercial Mastery",
+    tagline: "The Market Monetization",
+    bgGradient: "from-emerald-500/10 to-transparent",
+    icon: Briefcase,
+    steps: [
+      { name: "Scholarship Program", desc: "Top performers ke liye 1-Month advanced mentorship track, absolute real agency ecosystem experience." },
+      { name: "Freelancing Training", desc: "Fiverr/Upwork setup, high-conversion gigs creation, winning proposals writing, aur client retention skills." },
+      { name: "Internship Opportunity", desc: "Software house (CodEarn Tech) ke real commercial SaaS products par remote junior developer scale par placement." }
+    ]
   }
 ];
 
-export default function AcademyRoadmap() {
+export default function LearningPath() {
   return (
-    <section className="w-full bg-background text-foreground py-24 px-4 sm:px-6 overflow-hidden relative">
-      
-      {/* Background Subtle Laser Glow Ring */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none" />
+    <section className="w-full py-20 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden">
+      {/* Soft Ambient Light Effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/5 blur-[140px] rounded-full pointer-events-none" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto">
         
-        {/* Section Head - Crisp Apple Styling */}
-        <div className="text-center max-w-2xl mx-auto mb-20 md:mb-28">
-          <div className="inline-flex items-center gap-2 bg-secondary border border-border px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest text-muted-foreground mb-4">
-            The Blueprint
+        {/* Section Header */}
+        <div className="mb-16 text-center md:text-left flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-medium mb-3">
+              <Sparkles className="w-3 h-3 text-primary animate-pulse" />
+              Career Roadmap
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground leading-tight">
+              The Student <span className="text-primary">Transformation</span> Journey
+            </h2>
+            <p className="text-muted-foreground text-sm md:text-base max-w-xl mt-2 leading-relaxed">
+              We don't just teach code. We structuralize your transition from an absolute beginner to a commercial field engineering professional.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-sans font-bold tracking-tight text-balance">
-            The Visual Roadmap From <br />
-            Zero To Production Deployer.
-          </h2>
-          <p className="mt-4 text-sm sm:text-base text-muted-foreground font-light max-w-md mx-auto text-balance">
-            Six structured development phases designed to systematically eliminate tutorial dependency and transform your codebase capabilities.
-          </p>
+
+          {/* Minimalist Phase Badge Summary */}
+          <div className="hidden md:flex items-center gap-2 text-xs font-mono font-bold text-muted-foreground/60 bg-muted/40 p-2 rounded-xl border border-border/40">
+            <span>BEGINNER</span>
+            <ArrowRight className="w-3 h-3" />
+            <span className="text-primary">3 PHASES</span>
+            <ArrowRight className="w-3 h-3" />
+            <span>JUNIOR DEVELOPER</span>
+          </div>
         </div>
 
-        {/* The Pipeline Container Layout */}
-        <div className="relative">
-          
-          {/* Central Connecting Core Laser Line (Stays constant left on mobile, center on desktop) */}
-          <div className="absolute top-4 bottom-4 left-4 md:left-1/2 md:-translate-x-1/2 w-[2px] bg-gradient-to-b from-primary via-chart-4/40 to-border/20 pointer-events-none" />
+        {/* Bento Grid Architecture */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
+          {phases.map((phase, pIdx) => {
+            const IconComponent = phase.icon;
 
-          {/* Steps Wrapper Loop */}
-          <div className="space-y-12 md:space-y-16">
-            {roadmapSteps.map((step, idx) => {
-              const isEven = idx % 2 === 0;
-              
-              return (
-                <div 
-                  key={idx} 
-                  className={`flex flex-col md:flex-row items-start justify-between relative pl-12 md:pl-0 w-full ${
-                    isEven ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  
-                  {/* High-Tech Tracking Sequence Node Ring */}
-                  <div className="absolute left-[5px] md:left-1/2 md:-translate-x-1/2 top-1.5 z-20 flex items-center justify-center">
-                    <div className="w-6 h-6 rounded-full bg-background border-2 border-border flex items-center justify-center transition-all duration-300 hover:border-primary group">
-                      <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                    </div>
-                  </div>
-
-                  {/* Content Application Tile Block */}
-                  <div className="w-full md:w-[45%] group">
-                    <div className="bg-card border border-border/70 rounded-2xl p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/[0.02] relative overflow-hidden">
-                      
-                      {/* Accent Corner Gradient Strip */}
-                      <div className={`absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r ${step.color}`} />
-
-                      {/* Header Segment info */}
-                      <div className="flex items-center justify-between gap-4 mb-3">
-                        <span className="text-xs font-mono font-bold text-primary/80">
-                          PHASE // {step.phase}
-                        </span>
-                        <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-muted text-muted-foreground border border-border/50 uppercase tracking-wider">
-                          {step.tag}
-                        </span>
+            return (
+              <div 
+                key={phase.id}
+                className={`
+                  relative rounded-[2.2rem] border border-border/60 bg-card p-6 md:p-8 
+                  transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5
+                  flex flex-col justify-between overflow-hidden group
+                  bg-gradient-to-br ${phase.bgGradient}
+                `}
+              >
+                <div>
+                  {/* Phase Top Meta Row */}
+                  <div className="flex items-center justify-between mb-8 border-b border-border/30 pb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-background border border-border/60 flex items-center justify-center text-primary shadow-sm group-hover:scale-105 transition-transform duration-300">
+                        <IconComponent className="w-5 h-5" strokeWidth={1.75} />
                       </div>
-
-                      {/* Main Title heading */}
-                      <h3 className="text-xl font-sans font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-300">
-                        {step.title}
-                      </h3>
-
-                      {/* Descriptive contextual brief */}
-                      <p className="mt-3 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed">
-                        {step.desc}
-                      </p>
-
+                      <div>
+                        <h3 className="text-base font-bold text-foreground tracking-tight">
+                          {phase.phaseTitle}
+                        </h3>
+                        <p className="text-[11px] font-medium text-muted-foreground">
+                          {phase.tagline}
+                        </p>
+                      </div>
                     </div>
+                    <span className="text-2xl font-black font-mono tracking-tighter opacity-10 text-foreground group-hover:opacity-20 transition-opacity">
+                      {phase.id}
+                    </span>
                   </div>
 
-                  {/* Spacer Column element for desktop balance layout symmetry */}
-                  <div className="hidden md:block w-[45%]" />
+                  {/* Sub-steps Vertical Inner Deck */}
+                  <div className="space-y-6 relative">
+                    {phase.steps.map((step, sIdx) => (
+                      <div key={sIdx} className="relative flex gap-4 items-start group/step">
+                        
+                        {/* Micro Step Timeline Line Connector */}
+                        {sIdx !== phase.steps.length - 1 && (
+                          <div className="absolute left-[10px] top-[24px] w-[1px] h-[calc(100%+12px)] bg-border/60 group-hover:bg-primary/20 transition-colors" />
+                        )}
 
+                        {/* Node Bullet Point */}
+                        <div className="w-5 h-5 rounded-full bg-background border-2 border-border/80 flex items-center justify-center shrink-0 mt-0.5 relative z-10 transition-colors group-hover/step:border-primary">
+                          <CheckCircle2 className="w-3 h-3 text-primary scale-0 group-hover/step:scale-100 transition-transform duration-300" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground/30 group-hover/step:scale-0 transition-transform duration-200" />
+                        </div>
+
+                        {/* Step Main Text Details */}
+                        <div className="space-y-1">
+                          <h4 className="text-sm font-bold text-foreground tracking-tight group-hover/step:text-primary transition-colors">
+                            {step.name}
+                          </h4>
+                          <p className="text-xs text-muted-foreground leading-relaxed">
+                            {step.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              );
-            })}
-          </div>
 
+                {/* Bottom Card Border Gradient Accent */}
+                <div className="h-[2px] w-1/3 bg-gradient-to-r from-primary/40 to-transparent mt-8 rounded-full transition-all duration-500 group-hover:w-full" />
+              </div>
+            );
+          })}
         </div>
 
       </div>

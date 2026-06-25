@@ -2,7 +2,10 @@ import AcademyComparison from "@/components/sections/academy/academy-comparison"
 import AcademyCourses from "@/components/sections/academy/academy-courses";
 import AcademyHero from "@/components/sections/academy/academy-hero";
 import AcademyRoadmap from "@/components/sections/academy/academy-roadmap";
-import {CourseDetailModal} from "@/components/sections/traning/traningmain";
+import CoursesSection from "@/components/sections/academy/CoursesSection";
+import FAQSection from "@/components/sections/academy/FAQSection";
+import FinalCTA from "@/components/sections/academy/FinalCTA";
+// import {CourseDetailModal} from "@/components/sections/traning/traningmain";
 import type { Metadata } from "next";
 
 // ✅ TRAINING PAGE SEO - Education Keywords
@@ -135,8 +138,11 @@ export default function Training() {
       
       <AcademyHero/>
       <AcademyComparison/>
+      <CoursesSection/>
       <AcademyRoadmap/>
-      <AcademyCourses/>
+      <FAQSection/>
+      {/* <AcademyCourses/> */}
+      <FinalCTA/>
     </div>
   );
 }
