@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Script from "next/script"; 
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryProvider } from "@/providers/query-provider";
@@ -9,7 +10,7 @@ import LayoutWrapper from "@/components/layout/layout-wrapper";
 import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/seo-schemas";
 import SecurityGuard from "@/components/SecurityGuard";
 
-// 1. Font Optimization: display: 'swap' zaroori hai layout shift rokne ke liye
+// Font Optimization
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
@@ -26,18 +27,13 @@ export const viewport: Viewport = {
   ],
 };
 
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codearntech.cloud"),
-  
-  // Basic SEO
   title: {
     default: "CodEarn Tech | SaaS Development & Software Solutions in Pakistan",
     template: "%s | CodEarn Tech",
   },
   description: "Leading software company in Samundri, Pakistan. We build scalable SaaS products, custom web applications, and provide practical training with guaranteed internships. 4+ years experience, 3-month project support included.",
-  
-  // Keywords
   keywords: [
     "SaaS development Pakistan",
     "software company Samundri",
@@ -50,13 +46,9 @@ export const metadata: Metadata = {
     "data modeling courses",
     "software training institute"
   ],
-  
-  // Authors & Creators
   authors: [{ name: "CodEarn Tech", url: "https://www.codearntech.cloud" }],
   creator: "CodEarn Tech",
   publisher: "CodEarn Tech",
-  
-  // Robots
   robots: {
     index: true,
     follow: true,
@@ -70,13 +62,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  
-  // Canonical & Alternates
   alternates: {
     canonical: "/",
   },
-  
-  // Open Graph (Facebook, LinkedIn, WhatsApp)
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -94,8 +82,6 @@ export const metadata: Metadata = {
       },
     ],
   },
-  
-  // Twitter Card
   twitter: {
     card: "summary_large_image",
     title: "CodEarn Tech | SaaS Development & Software Solutions",
@@ -103,13 +89,9 @@ export const metadata: Metadata = {
     images: ["/og-image.webp"],
     creator: "@codearntech",
   },
-  
-  // Verification
   verification: {
     google: "_GZUOBwhCQ8T5t1ME4Xg46wwwo3o_WznYgcmBKM2PbY",
   },
-  
-  // Icons
   icons: {
     icon: [
       { url: "/logo.webp", type: "image/webp" },
@@ -119,16 +101,11 @@ export const metadata: Metadata = {
       { url: "/logo.webp", sizes: "180x180", type: "image/webp" },
     ],
   },
-  
-  // Manifest
   manifest: "/manifest.json",
-  
-  // Archives & Categories
   archives: ["https://www.codearntech.cloud/blogs"],
   category: "technology",
   classification: "Software Development, Education, Technology",
 };
-
 
 export default function RootLayout({
   children,
@@ -144,6 +121,24 @@ export default function RootLayout({
             __html: JSON.stringify([organizationSchema, websiteSchema, localBusinessSchema]) 
           }}
         />
+        
+        {/* SNAPCHAT PIXEL - NEXT.JS OPTIMIZED */}
+        <Script id="snapchat-pixel" strategy="afterInteractive">
+          {`
+            (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+            {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+            a.queue=[];var s='script';var r=t.createElement(s);r.async=!0;
+            r.src=n;var u=t.getElementsByTagName(s)[0];
+            u.parentNode.insertBefore(r,u)})(window,document,
+            'https://sc-static.net/scevent.min.js');
+
+            snaptr('init', 'aeb326d3-6533-4cac-bc69-ba0c7f2f3fbf', {
+              'user_email': '__INSERT_USER_EMAIL__'
+            });
+
+            snaptr('track', 'PAGE_VIEW');
+          `}
+        </Script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider
