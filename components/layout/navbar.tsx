@@ -124,7 +124,7 @@ export function Navbar() {
                 <div className="relative w-12 h-12 sm:w-11 sm:h-11 rounded-xl bg-linear-to-br from-codearn-blue via-codearn-purple to-codearn-cyan flex items-center justify-center shadow-lg group-hover:scale-105 transition">
                   <Image
                     src="/logo.webp"
-                    alt="CodEarn Tech Logo"
+                    alt="CodEarn Logo"
                     fill
                     sizes="(max-width: 768px) 100px, 150px" 
                     className="object-contain"

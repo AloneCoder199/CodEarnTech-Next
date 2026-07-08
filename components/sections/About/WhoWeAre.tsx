@@ -120,7 +120,7 @@ export function WhoWeAre() {
             <p className="text-muted-foreground mb-8 leading-relaxed">
               We've been on the client side. We know the frustration of missed deadlines, 
               ballooning budgets, and code that breaks when you need it most. So we built 
-              CodEarn Tech to be the partner we wished we had.
+              CodEarn to be the partner we wished we had.
             </p>
             
             <ul className="space-y-4">

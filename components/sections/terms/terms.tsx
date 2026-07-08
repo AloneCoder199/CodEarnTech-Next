@@ -215,7 +215,7 @@ export default function TermsOfService() {
               >
                 <div className="space-y-3 lg:space-y-4 text-sm lg:text-base text-muted-foreground">
                   <p>
-                    By accessing CodEarn Tech's services, you agree to be bound by these Terms. 
+                    By accessing CodEarn's services, you agree to be bound by these Terms. 
                     If you're using this on behalf of an organization, you confirm you have authority to bind them.
                   </p>
                   <div className="p-3 lg:p-4 rounded-lg bg-muted/50 border border-border">

@@ -9,7 +9,7 @@ import SubscribeSection from "@/components/layout/subscription";
 // ✅ PRODUCTS PAGE SEO
 export const metadata: Metadata = {
   title: "Our SaaS Products | Innovative Software Solutions",
-  description: "Explore CodEarn Tech's SaaS products and software solutions. Built with cutting-edge technology to solve real business problems. Discover our product roadmap and upcoming features.",
+  description: "Explore CodEarn's SaaS products and software solutions. Built with cutting-edge technology to solve real business problems. Discover our product roadmap and upcoming features.",
   keywords: [
     "SaaS products Pakistan",
     "software products",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "software solutions"
   ],
   openGraph: {
-    title: "CodEarn Tech Products | Innovative SaaS Solutions",
+    title: "CodEarn Products | Innovative SaaS Solutions",
     description: "Discover our portfolio of SaaS products built to transform businesses. See our roadmap and upcoming innovations.",
     url: "https://www.codearntech.cloud/products",
     type: "website",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "/products-og.png",
         width: 1200,
         height: 630,
-        alt: "CodEarn Tech SaaS Products",
+        alt: "CodEarn SaaS Products",
       },
     ],
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "CodEarn Tech SaaS Products",
+  name: "CodEarn SaaS Products",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   offers: {
@@ -66,7 +66,7 @@ const softwareSchema = {
   url: "https://www.codearntech.cloud/products",
   author: {
     "@type": "Organization",
-    name: "CodEarn Tech",
+    name: "CodEarn",
   },
 };
 

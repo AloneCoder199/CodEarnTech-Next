@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "technology trends 2024"
   ],
   openGraph: {
-    title: "CodEarn Tech Blog | Software Development Insights",
+    title: "CodEarn Blog | Software Development Insights",
     description: "Expert insights on SaaS development, programming, and technology trends. Learn from industry professionals.",
     url: "https://www.codearntech.cloud/blogs",
     type: "website",
@@ -32,12 +32,12 @@ export const metadata: Metadata = {
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "CodEarn Tech Blog",
+  name: "CodEarn Blog",
   description: "Software development insights, programming tips, and technology articles",
   url: "https://www.codearntech.cloud/blogs",
   publisher: {
     "@type": "Organization",
-    name: "CodEarn Tech",
+    name: "CodEarn",
     logo: {
       "@type": "ImageObject",
       url: "https://www.codearntech.cloud/logo.png",

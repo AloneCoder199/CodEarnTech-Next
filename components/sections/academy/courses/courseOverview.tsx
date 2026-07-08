@@ -35,7 +35,7 @@ export default function CourseOverview({ slug }: CourseOverviewProps) {
   ];
 
   const defaultExpectedOutcomes = [
-    "Direct placement eligibility in active dev teams or internal live enterprise projects at CodEarn Tech.",
+    "Direct placement eligibility in active dev teams or internal live enterprise projects at CodEarn.",
     "A world-class engineering portfolio containing up to 10 live, highly scalable web/mobile apps.",
     "Confidence to confidently command premium developer compensation scales in international remote tech roles."
   ];

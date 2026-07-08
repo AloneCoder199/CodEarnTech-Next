@@ -132,7 +132,7 @@ export const PageLoader = ({
           <div className="mb-6 flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-primary animate-pulse" />
             <span className="text-xl font-bold tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              CodEarn Tech
+              CodEarn
             </span>
           </div>
         )}

@@ -201,7 +201,7 @@ export function IntroductionSection() {
                   </div>
                   
                   <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-4">
-                    Why CodEarn Tech?
+                    Why CodEarn?
                   </h3>
                   
                   <div className="space-y-6 text-muted-foreground leading-relaxed grow">
@@ -215,7 +215,7 @@ export function IntroductionSection() {
 
   <div className="relative mt-6 p-5 rounded-r-xl border-l-4 border-primary bg-primary/5 transition-all hover:bg-primary/10">
     <p className="text-[15px] font-medium italic text-foreground/90">
-      "CodEarn Tech was founded on this very mission: to move beyond syntax and tutorials. We don't just teach you how to write code; we cultivate the sophisticated <span className="text-primary not-italic font-bold">Engineering Mindset</span> required to lead the global tech industry."
+      "CodEarn was founded on this very mission: to move beyond syntax and tutorials. We don't just teach you how to write code; we cultivate the sophisticated <span className="text-primary not-italic font-bold">Engineering Mindset</span> required to lead the global tech industry."
     </p>
   </div>
 </div>
@@ -357,7 +357,7 @@ export function IntroductionSection() {
     </p>
     
     <p className="text-base lg:text-lg text-muted-foreground/90 leading-relaxed">
-      CodEarn Tech transcends the traditional definition of a software company; it is a <span className="text-foreground font-bold border-b-2 border-primary/40">sacred mission</span> to empower talent and serve the community through excellence in engineering.
+      CodEarn transcends the traditional definition of a software company; it is a <span className="text-foreground font-bold border-b-2 border-primary/40">sacred mission</span> to empower talent and serve the community through excellence in engineering.
     </p>
   </div>
 </div>

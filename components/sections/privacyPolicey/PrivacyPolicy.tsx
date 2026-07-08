@@ -177,7 +177,7 @@ export default function PrivacyPolicy() {
                   
                   <div className="bg-card border border-border rounded-2xl p-6 lg:p-8 mb-6">
                     <p className="text-muted-foreground leading-relaxed mb-4">
-                      At <strong className="text-foreground">CodEarn Tech</strong>, privacy isn't a compliance checkbox — 
+                      At <strong className="text-foreground">CodEarn</strong>, privacy isn't a compliance checkbox — 
                       it's a core engineering principle. We believe that trust is earned through transparency, 
                       not buried in legal fine print.
                     </p>
@@ -671,7 +671,7 @@ export default function PrivacyPolicy() {
 
                       <div className="mt-8 pt-8 border-t border-primary/10">
                         <p className="text-sm text-muted-foreground">
-                          <strong className="text-foreground">CodEarn Tech</strong> •  Innovation Drive, Tech City • 
+                          <strong className="text-foreground">CodEarn</strong> •  Innovation Drive, Tech City • 
                           Samundri : Faislabad
                         </p>
                       </div>

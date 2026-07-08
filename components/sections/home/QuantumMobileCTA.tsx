@@ -13,7 +13,7 @@ export const EliteQuantumCTA = memo(() => {
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
           <Sparkles className="w-3 h-3 text-primary" />
           <span className="text-[9px] font-bold tracking-[0.2em] uppercase text-primary/80">
-            CodEarn Tech Architecture
+            CodEarn Architecture
           </span>
         </div>
 

@@ -34,7 +34,7 @@ const ACADEMY_STAGES = [
     id: 3,
     tag: "PHASE_03 // PRODUCTION_VETTING",
     title: "CodEarn Studio Integration Path",
-    description: "The top 10% of engineering performers bypass standard hiring queues entirely. You transition directly into internal client-facing development sprints at CodEarn Tech as a paid developer.",
+    description: "The top 10% of engineering performers bypass standard hiring queues entirely. You transition directly into internal client-facing development sprints at CodEarn as a paid developer.",
     icon: GitFork,
   },
   {

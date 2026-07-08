@@ -4,7 +4,7 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "CodEarn Tech",
+  name: "CodEarn",
   alternateName: "Code Earn Tech",
   url: "https://www.codearntech.cloud",
   logo: "https://www.codearntech.cloud/logo.png",
@@ -78,7 +78,7 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "CodEarn Tech",
+  name: "CodEarn",
   url: "https://www.codearntech.cloud",
   potentialAction: {
     "@type": "SearchAction",
@@ -91,18 +91,18 @@ export const websiteSchema = {
   inLanguage: "en-US",
   copyrightHolder: {
     "@type": "Organization",
-    name: "CodEarn Tech",
+    name: "CodEarn",
   },
   creator: {
     "@type": "Organization",
-    name: "CodEarn Tech",
+    name: "CodEarn",
   },
 };
 
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Organization"],
-  name: "CodEarn Tech",
+  name: "CodEarn",
   image: "https://www.codearntech.cloud/og-image.jpg",
   "@id": "https://www.codearntech.cloud",
   url: "https://www.codearntech.cloud",
@@ -132,7 +132,7 @@ export const localBusinessSchema = {
   department: [
     {
       "@type": "LocalBusiness",
-      name: "CodEarn Tech Training Center",
+      name: "CodEarn Training Center",
       description: "Programming and software development training institute",
     },
   ],

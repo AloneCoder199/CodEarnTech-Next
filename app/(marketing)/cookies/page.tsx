@@ -2,15 +2,15 @@ import CookiePolicy from "@/components/sections/cookies/cookie";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | How We Use Cookies | CodEarn Tech",
-  description: "Learn about how CodEarn Tech uses cookies to enhance your browsing experience. Understand what cookies we use and how you can manage your preferences.",
+  title: "Cookie Policy | How We Use Cookies | CodEarn",
+  description: "Learn about how CodEarn uses cookies to enhance your browsing experience. Understand what cookies we use and how you can manage your preferences.",
   keywords: [
     "cookie policy",
     "cookies usage",
     "website cookies",
     "cookie consent",
     "tracking cookies",
-    "CodEarn Tech cookies",
+    "CodEarn cookies",
     "browser cookies",
     "cookie settings",
     "privacy cookies",

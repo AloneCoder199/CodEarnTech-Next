@@ -38,11 +38,11 @@ const faqs = [
   {
     roman: {
       question: "1-Month Scholarship aur Internship program kis tarah kaam karta hai?",
-      answer: "Bootcamp ke top 10 performance dikhane wale students ko hamari software house (CodEarn Tech) ki taraf se 1-Month advanced masterclass scholarship aur direct commercial remote internship projects par kaam karne ka mauqa milega."
+      answer: "Bootcamp ke top 10 performance dikhane wale students ko hamari software house (CodEarn) ki taraf se 1-Month advanced masterclass scholarship aur direct commercial remote internship projects par kaam karne ka mauqa milega."
     },
     en: {
       question: "How does the 1-Month Scholarship & Internship program work?",
-      answer: "The top 10 performing students of this batch will receive a 1-Month advanced mentorship track scholarship and a direct opportunity to join our software house (CodEarn Tech) as remote junior developers working on active SaaS products."
+      answer: "The top 10 performing students of this batch will receive a 1-Month advanced mentorship track scholarship and a direct opportunity to join our software house (CodEarn) as remote junior developers working on active SaaS products."
     }
   },
   {
@@ -78,11 +78,11 @@ const faqs = [
   {
     roman: {
       question: "Kya mujhe computer science ki degree (BS-CS/IT) chahiye join karne ke liye?",
-      answer: "Bilkul nahi! Tech industry ab degree par nahi balki aapke Github portfolio aur pipeline products par chalti hai. Hamari software house (CodEarn Tech) mein bhi selection sirf is bina par hoti hai ke aap real product kitna clean code kar sakte hain."
+      answer: "Bilkul nahi! Tech industry ab degree par nahi balki aapke Github portfolio aur pipeline products par chalti hai. Hamari software house (CodEarn) mein bhi selection sirf is bina par hoti hai ke aap real product kitna clean code kar sakte hain."
     },
     en: {
       question: "Do I need a university degree in Computer Science to join this program?",
-      answer: "Absolutely not. The modern tech market runs entirely on real skills and GitHub portfolios, not paper degrees. Even within our development house (CodEarn Tech), selection is purely performance-based."
+      answer: "Absolutely not. The modern tech market runs entirely on real skills and GitHub portfolios, not paper degrees. Even within our development house (CodEarn), selection is purely performance-based."
     }
   },
   {

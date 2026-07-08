@@ -320,7 +320,7 @@ export function ProblemSection() {
               </div>
               
               <h3 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-                How CodEarn Tech <span className="text-primary">Fixes This</span>
+                How CodEarn <span className="text-primary">Fixes This</span>
               </h3>
               
               <ul className="space-y-4">

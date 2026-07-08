@@ -176,7 +176,7 @@ export function AboutHero() {
                       C
                     </div>
                     <div>
-                      <div className="font-semibold text-foreground">CodEarn Tech Team</div>
+                      <div className="font-semibold text-foreground">CodEarn Team</div>
                       <div className="text-sm text-muted-foreground">Founders & Engineers</div>
                     </div>
                   </div>

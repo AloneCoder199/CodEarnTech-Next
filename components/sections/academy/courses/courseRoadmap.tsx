@@ -151,7 +151,7 @@ export default function CourseRoadmap({ slug }: CourseRoadmapProps) {
           <div className="absolute top-0 left-0 w-2 h-full bg-primary" />
           <p className="text-xs sm:text-sm font-medium text-muted-foreground leading-relaxed">
             <Flame className="w-4 h-4 text-primary inline-block mr-1.5 -translate-y-0.5" />
-            **Note:** This is a zero-fluff pipeline. Missing 2 consecutive execution periods without code submissions will flag your repo visibility inside CodEarn Tech systems.
+            **Note:** This is a zero-fluff pipeline. Missing 2 consecutive execution periods without code submissions will flag your repo visibility inside CodEarn systems.
           </p>
         </div>
 

@@ -39,7 +39,7 @@ export const emailTemplates = {
       subject: ' Verify your CodEarn Account',
       html: `
         <div style="${commonStyles}">
-          <h1 style="color: #0f172a; font-size: 24px; margin-bottom: 20px;">Welcome to CodEarn Tech, ${name}!</h1>
+          <h1 style="color: #0f172a; font-size: 24px; margin-bottom: 20px;">Welcome to CodEarn, ${name}!</h1>
           <p style="font-size: 16px; line-height: 1.6;">We're excited to have you on board. To get started and access your courses, please verify your email address below:</p>
           
           <center>
@@ -51,7 +51,7 @@ export const emailTemplates = {
           
           <div style="${footerStyles}">
             <p><strong>Security Note:</strong> This verification link will expire in <strong>24 hours</strong>. If you did not create a CodEarn account, please ignore this email.</p>
-            <p>© ${new Date().getFullYear()} CodEarn Tech Pakistan. <br> Samundri, Faisalabad, Pakistan</p>
+            <p>© ${new Date().getFullYear()} CodEarn Pakistan. <br> Samundri, Faisalabad, Pakistan</p>
           </div>
         </div>
       `,
@@ -75,7 +75,7 @@ export const emailTemplates = {
           
           <div style="${footerStyles}">
             <p>For security, never share this link with anyone. Our support team will never ask for your password or reset link.</p>
-            <p>© ${new Date().getFullYear()} CodEarn Tech Pakistan. <br> Building Future-Ready Developers.</p>
+            <p>© ${new Date().getFullYear()} CodEarn Pakistan. <br> Building Future-Ready Developers.</p>
           </div>
         </div>
       `,

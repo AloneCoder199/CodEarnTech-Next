@@ -88,7 +88,7 @@ export default function CertificatePreview({ slug }: CertificatePreviewProps) {
               <div className="flex justify-between items-start relative z-10">
                 <div className="space-y-1">
                   <div className="text-[10px] font-mono font-black text-primary tracking-widest uppercase flex items-center gap-1">
-                    <Sparkles className="w-3 h-3 animate-pulse" /> CodEarn Tech Academy
+                    <Sparkles className="w-3 h-3 animate-pulse" /> CodEarn Academy
                   </div>
                   <div className="text-[7px] text-muted-foreground/40 font-mono tracking-wider">VERIFICATION ID: CET-2026-99X8</div>
                 </div>

@@ -42,7 +42,7 @@ const phases = [
     steps: [
       { name: "Scholarship Program", desc: "Top performers ke liye 1-Month advanced mentorship track, absolute real agency ecosystem experience." },
       { name: "Freelancing Training", desc: "Fiverr/Upwork setup, high-conversion gigs creation, winning proposals writing, aur client retention skills." },
-      { name: "Internship Opportunity", desc: "Software house (CodEarn Tech) ke real commercial SaaS products par remote junior developer scale par placement." }
+      { name: "Internship Opportunity", desc: "Software house (CodEarn) ke real commercial SaaS products par remote junior developer scale par placement." }
     ]
   }
 ];

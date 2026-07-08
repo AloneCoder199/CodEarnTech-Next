@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 // ✅ BOOK CALL PAGE SEO - High Conversion Intent
 export const metadata: Metadata = {
-  title: "Book Free Consultation | Schedule a Call with CodEarn Tech",
+  title: "Book Free Consultation | Schedule a Call with CodEarn",
   description: "Schedule a free 30-minute consultation with our experts. Discuss your SaaS idea, web application requirements, or training needs. No obligation, pure value!",
   keywords: [
     "book consultation",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "tech consultation Pakistan"
   ],
   openGraph: {
-    title: "Book Free Consultation | CodEarn Tech",
+    title: "Book Free Consultation | CodEarn",
     description: "Ready to start your project? Book a free 30-minute call with our experts. Let's discuss your ideas!",
     url: "https://www.codearntech.cloud/book-call",
     type: "website",

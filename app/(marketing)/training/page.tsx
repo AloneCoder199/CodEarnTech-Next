@@ -10,7 +10,7 @@ import type { Metadata } from "next";
 
 // ✅ TRAINING PAGE SEO - Education Keywords
 export const metadata: Metadata = {
-  title: "Programming Courses & Internship Training | CodEarn Tech",
+  title: "Programming Courses & Internship Training | CodEarn",
   description: "Learn Full Stack Development, Backend & Data Modeling with guaranteed internship. Practical training in Samundri, Pakistan. Job placement assistance included. Enroll now!",
   keywords: [
     "programming courses Pakistan",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "computer courses with internship"
   ],
   openGraph: {
-    title: "Learn Programming with Guaranteed Internship | CodEarn Tech",
+    title: "Learn Programming with Guaranteed Internship | CodEarn",
     description: "Master Full Stack Development, Backend & Data Modeling. 4+ years experienced mentors, real projects, and job placement support.",
     url: "https://www.codearntech.cloud/training",
     type: "website",
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
         url: "/training-og.png",
         width: 1200,
         height: 630,
-        alt: "CodEarn Tech Training - Programming Courses",
+        alt: "CodEarn Training - Programming Courses",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Programming Training with Internship | CodEarn Tech",
+    title: "Programming Training with Internship | CodEarn",
     description: "Learn to code and get guaranteed internship. Start your tech career today!",
   },
   alternates: {
@@ -58,7 +58,7 @@ const courseSchema = {
   description: "Comprehensive programming training covering frontend, backend, data modeling, and system architecture with guaranteed internship",
   provider: {
     "@type": "Organization",
-    name: "CodEarn Tech",
+    name: "CodEarn",
     sameAs: "https://www.codearntech.cloud",
   },
   hasCourseInstance: [
@@ -69,7 +69,7 @@ const courseSchema = {
       inLanguage: ["en", "ur"],
       location: {
         "@type": "Place",
-        name: "CodEarn Tech Training Center",
+        name: "CodEarn Training Center",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Samundri",

@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 
 // ✅ CONTACT PAGE SEO
 export const metadata: Metadata = {
-  title: "Contact Us | Get Free Consultation - CodEarn Tech",
-  description: "Contact CodEarn Tech for SaaS development, web applications, or training inquiries. Visit our Samundri office or reach us online. Free consultation available!",
+  title: "Contact Us | Get Free Consultation - CodEarn",
+  description: "Contact CodEarn for SaaS development, web applications, or training inquiries. Visit our Samundri office or reach us online. Free consultation available!",
   keywords: [
-    "contact CodEarn Tech",
+    "contact CodEarn",
     "software company Samundri contact",
     "hire developers Pakistan",
     "web development consultation",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "Samundri software office"
   ],
   openGraph: {
-    title: "Contact CodEarn Tech | Let's Build Something Amazing",
+    title: "Contact CodEarn | Let's Build Something Amazing",
     description: "Ready to start your project? Contact us for free consultation. Visit our Samundri office or connect online.",
     url: "https://www.codearntech.cloud/contact",
     type: "website",
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
 const contactSchema = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  name: "Contact CodEarn Tech",
-  description: "Contact information for CodEarn Tech software development company",
+  name: "Contact CodEarn",
+  description: "Contact information for CodEarn software development company",
   url: "https://www.codearntech.cloud/contact",
   mainEntity: {
     "@type": "Organization",
-    name: "CodEarn Tech",
+    name: "CodEarn",
     url: "https://www.codearntech.cloud",
     logo: "https://www.codearntech.cloud/logo.png",
     contactPoint: {

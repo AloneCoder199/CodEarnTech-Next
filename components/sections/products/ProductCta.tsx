@@ -117,7 +117,7 @@ const handleConstructionAlert = ({ type }: ConstructionAlertProps) => {
               infrastructure to ensure you get a flawless, world-class experience.
             </p>
             <p>
-              At <strong className="text-primary">CodEarn Tech</strong>, we believe in delivering 
+              At <strong className="text-primary">CodEarn</strong>, we believe in delivering 
               perfection, not just software.
             </p>
             

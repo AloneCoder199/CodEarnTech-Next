@@ -30,8 +30,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codearntech.cloud"),
   title: {
-    default: "CodEarn Tech | SaaS Development & Software Solutions in Pakistan",
-    template: "%s | CodEarn Tech",
+    default: "CodEarn | SaaS Development & Software Solutions in Pakistan",
+    template: "%s | CodEarn",
   },
   description: "Leading software company in Samundri, Pakistan. We build scalable SaaS products, custom web applications, and provide practical training with guaranteed internships. 4+ years experience, 3-month project support included.",
   keywords: [
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     "custom software solutions",
     "programming training Pakistan",
     "internship guaranteed courses",
-    "CodEarn Tech",
+    "CodEarn",
     "backend development",
     "data modeling courses",
     "software training institute"
   ],
-  authors: [{ name: "CodEarn Tech", url: "https://www.codearntech.cloud" }],
-  creator: "CodEarn Tech",
-  publisher: "CodEarn Tech",
+  authors: [{ name: "CodEarn", url: "https://www.codearntech.cloud" }],
+  creator: "CodEarn",
+  publisher: "CodEarn",
   robots: {
     index: true,
     follow: true,
@@ -69,22 +69,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.codearntech.cloud",
-    siteName: "CodEarn Tech",
-    title: "CodEarn Tech | SaaS Development & Software Solutions",
+    siteName: "CodEarn",
+    title: "CodEarn | SaaS Development & Software Solutions",
     description: "Transform your ideas into scalable SaaS products. 4+ years experience, practical training with internships, and 3-month project support.",
     images: [
       {
         url: "/og-image.webp", 
         width: 1200,
         height: 630,
-        alt: "CodEarn Tech - Software Development Company",
+        alt: "CodEarn - Software Development Company",
         type: "image/webp",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CodEarn Tech | SaaS Development & Software Solutions",
+    title: "CodEarn | SaaS Development & Software Solutions",
     description: "Transform your ideas into scalable SaaS products. Practical training with guaranteed internships.",
     images: ["/og-image.webp"],
     creator: "@codearntech",

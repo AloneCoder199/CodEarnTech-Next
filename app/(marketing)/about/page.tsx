@@ -10,10 +10,10 @@ import SubscribeSection from "@/components/layout/subscription"
 
 // ✅ ABOUT PAGE SEO
 export const metadata: Metadata = {
-  title: "About Us | CodEarn Tech - Our Story & Mission",
-  description: "Learn about CodEarn Tech's journey. 4+ years of excellence in SaaS development, software solutions, and practical training. Discover our unique approach with guaranteed internships and 3-month project support.",
+  title: "About Us | CodEarn - Our Story & Mission",
+  description: "Learn about CodEarn's journey. 4+ years of excellence in SaaS development, software solutions, and practical training. Discover our unique approach with guaranteed internships and 3-month project support.",
   keywords: [
-    "about CodEarn Tech",
+    "about CodEarn",
     "software company Pakistan",
     "SaaS development team",
     "programming training institute",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Samundri tech company"
   ],
   openGraph: {
-    title: "About CodEarn Tech | Building Digital Futures Since 2021",
+    title: "About CodEarn | Building Digital Futures Since 2021",
     description: "Discover our mission to transform ideas into reality. 4+ years, 5+ successful projects, and 100+ trained students.",
     url: "https://www.codearntech.cloud/about",
     type: "article",
@@ -41,12 +41,12 @@ export default function AboutPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "AboutPage",
-            name: "About CodEarn Tech",
+            name: "About CodEarn",
             description: "Learn about our software development company and training programs",
             url: "https://www.codearntech.cloud/about",
             mainEntity: {
               "@type": "Organization",
-              name: "CodEarn Tech",
+              name: "CodEarn",
               foundingDate: "2021",
               description: "Software development and training company",
             },

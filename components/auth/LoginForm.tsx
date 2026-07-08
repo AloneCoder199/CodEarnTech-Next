@@ -465,7 +465,7 @@ export default function LoginForm() {
                 className="text-center space-y-2 pt-2"
               >
                 <p className="text-sm text-muted-foreground">
-                  Thank you for choosing <span className="font-semibold text-foreground">CodEarn Tech</span>
+                  Thank you for choosing <span className="font-semibold text-foreground">CodEarn</span>
                 </p>
                 <p className="text-xs text-muted-foreground">
                   Trusted by 10000+ Students worldwide

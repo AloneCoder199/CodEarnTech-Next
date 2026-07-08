@@ -16,7 +16,7 @@ export async function POST(req: Request) {
 
     // 1. Founder ko bhejne wali Email (Admin Alert)
     const adminMailOptions = {
-      from: `"CodEarn Tech Alert" <${process.env.EMAIL_USER}>`,
+      from: `"CodEarn Alert" <${process.env.EMAIL_USER}>`,
       to: 'aloncoder358@gmail.com',
       replyTo: email,
       subject: `🚨 New Inquiry: ${name}`,
@@ -34,7 +34,7 @@ export async function POST(req: Request) {
     };
 
     const userMailOptions = {
-  from: `"Muhammad Bilal | Founder CodEarn Tech" <${process.env.EMAIL_USER}>`,
+  from: `"Muhammad Bilal | Founder CodEarn" <${process.env.EMAIL_USER}>`,
   to: email,
   subject: `Confirmed: Your private message is on my desk, ${name}!`,
   html: `
@@ -82,7 +82,7 @@ export async function POST(req: Request) {
       <!-- Signature Footer -->
       <div style="background-color: #f8fafc; padding: 30px; text-align: center; border-top: 1px solid #f1f5f9;">
         <p style="margin: 0; color: #0f172a; font-weight: 700; font-size: 16px;">Muhammad Bilal</p>
-        <p style="margin: 5px 0 0 0; color: #64748b; font-size: 13px;">Founder & Lead Developer, CodEarn Tech</p>
+        <p style="margin: 5px 0 0 0; color: #64748b; font-size: 13px;">Founder & Lead Developer, CodEarn</p>
         <div style="margin-top: 20px; color: #94a3b8; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
           Samundri, Faisalabad, Pakistan
         </div>

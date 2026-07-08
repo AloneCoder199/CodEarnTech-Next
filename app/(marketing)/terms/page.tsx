@@ -2,13 +2,13 @@ import TermsOfService from "@/components/sections/terms/terms";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | CodEarn Tech User Agreement",
-  description: "Read CodEarn Tech's Terms of Service. Understand the rules, regulations, and guidelines for using our software development services and training programs.",
+  title: "Terms of Service | CodEarn User Agreement",
+  description: "Read CodEarn's Terms of Service. Understand the rules, regulations, and guidelines for using our software development services and training programs.",
   keywords: [
     "terms of service",
     "user agreement",
     "service terms",
-    "CodEarn Tech terms",
+    "CodEarn terms",
     "software service agreement",
     "training terms",
     "user guidelines",

@@ -63,7 +63,7 @@ export default function SolutionsHero() {
           Architectural Solutions.
         </h2>
         <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 max-w-lg mx-auto font-normal leading-relaxed">
-          CodEarn Tech's engineering ecosystem. Built for absolute scale, high-throughput security, and microsecond precision.
+          CodEarn's engineering ecosystem. Built for absolute scale, high-throughput security, and microsecond precision.
         </p>
       </div>
 

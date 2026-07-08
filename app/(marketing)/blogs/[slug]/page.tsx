@@ -20,9 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const blogImage = "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200";
   
   return {
-    title: `${blogTitle} | CodEarn Tech Blog`,
+    title: `${blogTitle} | CodEarn Blog`,
     description: blogDescription,
-    keywords: ["software development", "programming", "tech article", "CodEarn Tech"],
+    keywords: ["software development", "programming", "tech article", "CodEarn"],
     openGraph: {
       title: blogTitle,
       description: blogDescription,
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       images: [{ url: blogImage, width: 1200, height: 630, alt: blogTitle }],
       publishedTime: new Date().toISOString(),
-      authors: ["CodEarn Tech"],
+      authors: ["CodEarn"],
     },
     twitter: {
       card: "summary_large_image",
@@ -70,12 +70,12 @@ export default async function BlogPost({ params }: Props) {
     dateModified: new Date().toISOString(),
     author: {
       "@type": "Organization",
-      name: "CodEarn Tech",
+      name: "CodEarn",
       url: "https://www.codearntech.cloud",
     },
     publisher: {
       "@type": "Organization",
-      name: "CodEarn Tech",
+      name: "CodEarn",
       logo: {
         "@type": "ImageObject",
         url: "https://www.codearntech.cloud/logo.png",

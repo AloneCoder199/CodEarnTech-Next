@@ -266,7 +266,7 @@ export default function RegisterForm() {
               Create Your Account
             </CardTitle>
             <CardDescription className="text-sm sm:text-base text-muted-foreground">
-              Join 1000+ Students with CodEarn Tech
+              Join 1000+ Students with CodEarn
             </CardDescription>
           </CardHeader>
           

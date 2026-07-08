@@ -128,7 +128,7 @@ const TrustAuthoritySection = () => {
       {/* 📸 FOUNDER IMAGE */}
       <img 
         src="/founder.webp" 
-        alt="Founder of CodEarn Tech"
+        alt="Founder of CodEarn"
         className="w-full h-full object-cover transition-all duration-700 blur-lg group-hover:blur-0 scale-110 group-hover:scale-100"
       />
 

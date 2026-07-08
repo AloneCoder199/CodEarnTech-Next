@@ -74,7 +74,7 @@ const VSCard = memo(function VSCard({
           <span className={`text-xs font-bold uppercase tracking-wider ${
             isUs ? 'text-primary' : 'text-muted-foreground'
           }`}>
-            {isUs ? 'CodEarn Tech' : 'Traditional Agencies'}
+            {isUs ? 'CodEarn' : 'Traditional Agencies'}
           </span>
           <h3 className={`text-xl font-bold ${isUs ? 'text-foreground' : 'text-muted-foreground'}`}>
             {data.headline}

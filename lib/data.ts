@@ -98,7 +98,7 @@ export const courses: ICourse[] = [
       "Fiverr Account Setup & High-Converting Gig Creation",
       "Client Communication & Premium Proposal Writing",
       "1 Month Scholarship Program Track (Top 10 Performers)",
-      "Direct Remote Internship Opportunities at CodEarn Tech"
+      "Direct Remote Internship Opportunities at CodEarn"
     ],
     requirements: [
       "Basic computer literacy",
@@ -166,7 +166,7 @@ export const courses: ICourse[] = [
           { "id": "t23", "title": "GitHub Profile Design & Green Contribution Strategies", "description": "Structuring pinned project showcases, descriptive bios, and clean repository flows", "duration": "55 min", "isPreview": false },
           { "id": "t24", "title": "Freelancing Framework: Fiverr Account Configuration & Gig Ranking", "description": "Analyzing search engine mechanics, designing custom layouts, and optimization tracking", "duration": "75 min", "isPreview": false },
           { "id": "t25", "title": "Client Acquisition, High-Yield Proposals & Communications", "description": "Writing clear targeted proposals, tracking deals, and managing operational metrics", "duration": "60 min", "isPreview": false },
-          { "id": "t26", "title": "CodEarn Tech Scholarship Launch & Final Reviews", "description": "Selecting the top 10 developers for advanced mentorship, real team pipelines, and internal certificates", "duration": "70 min", "isPreview": false }
+          { "id": "t26", "title": "CodEarn Scholarship Launch & Final Reviews", "description": "Selecting the top 10 developers for advanced mentorship, real team pipelines, and internal certificates", "duration": "70 min", "isPreview": false }
         ]
       }
     ]

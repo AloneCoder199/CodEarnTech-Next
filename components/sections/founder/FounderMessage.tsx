@@ -94,7 +94,7 @@ function ProtectedImage({ src, alt }: { src: string; alt: string }) {
       {/* Watermark overlay */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center opacity-0 hover:opacity-10 transition-opacity duration-300">
         <span className="text-4xl font-bold text-white rotate-45 whitespace-nowrap select-none">
-          © CodEarn Tech Protected
+          © CodEarn Protected
         </span>
       </div>
 
@@ -164,9 +164,9 @@ export function FounderMessage() {
 
   // Speech content for both languages
   const speechContent = {
-    en: `I know how it feels to stare at a screen, thinking you're not good enough. I've been there. Five years ago, I was sitting in a small village with broken internet, learning to code from a cracked phone screen. Everyone said I was wasting my time. Software engineering is not for people like us, they said. I applied to 47 companies. 47 rejections. Not because I lacked talent, but because I lacked experience. How do you get experience when no one gives you a chance? That's why I built CodEarn Tech. Not as a company, but as a promise. A promise that your background doesn't define your future. That a boy from a village can teach thousands. That failure is just data, not destiny. To every student reading this: I see you. I see your late nights, your self-doubt, your fear that maybe you're not cut out for this. You are. You just need someone to believe in you until you believe in yourself. This is not just about coding. This is about proving to yourself that you can. That you will. That you must. I'm not your teacher. I'm your proof that it's possible.`,
+    en: `I know how it feels to stare at a screen, thinking you're not good enough. I've been there. Five years ago, I was sitting in a small village with broken internet, learning to code from a cracked phone screen. Everyone said I was wasting my time. Software engineering is not for people like us, they said. I applied to 47 companies. 47 rejections. Not because I lacked talent, but because I lacked experience. How do you get experience when no one gives you a chance? That's why I built CodEarn. Not as a company, but as a promise. A promise that your background doesn't define your future. That a boy from a village can teach thousands. That failure is just data, not destiny. To every student reading this: I see you. I see your late nights, your self-doubt, your fear that maybe you're not cut out for this. You are. You just need someone to believe in you until you believe in yourself. This is not just about coding. This is about proving to yourself that you can. That you will. That you must. I'm not your teacher. I'm your proof that it's possible.`,
     
-    ur: `Mujhe pata hai kaisa lagta hai screen ko ghoor kar dekhna, soch kar ke tum kaafi nahi ho. Main wahan khada tha. Paanch saal pehle, main aik chhotay gaon mein baitha tha, toota hua internet tha, toota hua phone screen tha, aur main coding seekh raha tha. Sab kehtay thay main apna waqt zaya kar raha hoon. Software engineering hamaray liye nahi hai, kehtay thay. Main ne 47 companies mein apply kiya. 47 rejections. Is liye nahi ke main mein talent nahi tha, balke is liye ke experience nahi tha. Experience kaise mile jab koi chance hi nahi deta? Isi liye main ne CodEarn Tech banaya. Aik company nahi, balke aik waada. Waada ke tumhara background tumhara mustaqbil nahi tay karta. Ke aik gaon ka larka hazaar logon ko sikha sakta hai. Ke nakami sirf data hai, taqdeer nahi. Har student jo yeh parh raha hai: main tumhein dekh raha hoon. Main tumhari raat bhar ki mehnat dekh raha hoon, tumhara khud par shak, tumhara dar ke shayad tum is layak nahi. Tum ho. Tumhein bas kisi ki zaroorat hai jo tum par yaqeen karey jab tak tum khud par yaqeen na kar lo. Yeh sirf coding nahi hai. Yeh khud ko sabit karna hai ke tum kar sakte ho. Ke tum karogay. Ke tumhein karna hai. Main tumhara teacher nahi hoon. Main tumhara saboot hoon ke yeh mumkin hai.`
+    ur: `Mujhe pata hai kaisa lagta hai screen ko ghoor kar dekhna, soch kar ke tum kaafi nahi ho. Main wahan khada tha. Paanch saal pehle, main aik chhotay gaon mein baitha tha, toota hua internet tha, toota hua phone screen tha, aur main coding seekh raha tha. Sab kehtay thay main apna waqt zaya kar raha hoon. Software engineering hamaray liye nahi hai, kehtay thay. Main ne 47 companies mein apply kiya. 47 rejections. Is liye nahi ke main mein talent nahi tha, balke is liye ke experience nahi tha. Experience kaise mile jab koi chance hi nahi deta? Isi liye main ne CodEarn banaya. Aik company nahi, balke aik waada. Waada ke tumhara background tumhara mustaqbil nahi tay karta. Ke aik gaon ka larka hazaar logon ko sikha sakta hai. Ke nakami sirf data hai, taqdeer nahi. Har student jo yeh parh raha hai: main tumhein dekh raha hoon. Main tumhari raat bhar ki mehnat dekh raha hoon, tumhara khud par shak, tumhara dar ke shayad tum is layak nahi. Tum ho. Tumhein bas kisi ki zaroorat hai jo tum par yaqeen karey jab tak tum khud par yaqeen na kar lo. Yeh sirf coding nahi hai. Yeh khud ko sabit karna hai ke tum kar sakte ho. Ke tum karogay. Ke tumhein karna hai. Main tumhara teacher nahi hoon. Main tumhara saboot hoon ke yeh mumkin hai.`
   }
 
   // Speak function with human-like settings
@@ -258,7 +258,7 @@ export function FounderMessage() {
       highlight: "47 companies. 47 rejections"
     },
     {
-      text: "That's why I built CodEarn Tech. Not as a company, but as a promise. A promise that your background doesn't define your future. That a boy from a village can teach thousands. That failure is just data, not destiny.",
+      text: "That's why I built CodEarn. Not as a company, but as a promise. A promise that your background doesn't define your future. That a boy from a village can teach thousands. That failure is just data, not destiny.",
       highlight: "your background doesn't define your future"
     },
     {
@@ -279,7 +279,7 @@ export function FounderMessage() {
       highlight: "47 companies mein apply kiya. 47 rejections"
     },
     {
-      text: "Isi liye main ne CodEarn Tech banaya. Aik company nahi, balke aik waada. Waada ke tumhara background tumhara mustaqbil nahi tay karta. Ke aik gaon ka larka hazaar logon ko sikha sakta hai.",
+      text: "Isi liye main ne CodEarn banaya. Aik company nahi, balke aik waada. Waada ke tumhara background tumhara mustaqbil nahi tay karta. Ke aik gaon ka larka hazaar logon ko sikha sakta hai.",
       highlight: "tumhara background tumhara mustaqbil nahi tay karta"
     },
     {
@@ -551,8 +551,8 @@ export function FounderMessage() {
                       </div>
                       <div className="text-sm text-muted-foreground mt-1">
                         {language === "en" 
-                          ? "Founder, CodEarn Tech • Your companion in the journey"
-                          : "Founder, CodEarn Tech • Aap ke safar ka humsafar"}
+                          ? "Founder, CodEarn • Your companion in the journey"
+                          : "Founder, CodEarn • Aap ke safar ka humsafar"}
                       </div>
                     </div>
                     

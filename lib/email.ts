@@ -163,7 +163,7 @@ export function generateAdminNotificationEmail(data: EnrollmentData) {
       <div class="container">
         <div class="header">
           <h2> New Enrollment Alert!</h2>
-          <p>CodEarn Tech Learning Portal</p>
+          <p>CodEarn Learning Portal</p>
         </div>
         <div class="content">
           <p>Hello Admin,</p>
@@ -194,7 +194,7 @@ export function generateAdminNotificationEmail(data: EnrollmentData) {
           <a href="https://codearntech.cloud/student/dashboard" class="btn">View in Dashboard</a>
         </div>
         <div class="footer">
-          <p>© ${new Date().getFullYear()} CodEarn Tech Admin System</p>
+          <p>© ${new Date().getFullYear()} CodEarn Admin System</p>
           <p>System Generated Notification</p>
         </div>
       </div>
@@ -229,7 +229,7 @@ export function generateStudentEnrollmentEmail(data: SupportEmailData) {
       <div class="wrapper">
         <div class="container">
           <div class="header">
-            <h1 style="margin:0;">Welcome to CodEarn Tech! 🎓</h1>
+            <h1 style="margin:0;">Welcome to CodEarn! 🎓</h1>
             <p style="opacity: 0.9;">Your journey to becoming a pro starts here.</p>
           </div>
           <div class="content">
@@ -261,7 +261,7 @@ export function generateStudentEnrollmentEmail(data: SupportEmailData) {
             <p style="margin-top: 30px;">If you have any questions, feel free to contact us at <a href="mailto:support@codearntech.com" class="social-link">support@codearntech.com</a>.</p>
           </div>
           <div class="footer">
-            <p>Stay Connected with <strong>CodEarn Tech</strong></p>
+            <p>Stay Connected with <strong>CodEarn</strong></p>
             <p>© ${new Date().getFullYear()} Samundri, Pakistan. All rights reserved.</p>
           </div>
         </div>
@@ -526,7 +526,7 @@ export function generateEnrollmentConfirmationEmail(data: { name: string; course
           </center>
         </div>
         <div class="footer">
-          <p>© ${new Date().getFullYear()} CodEarn Tech Pakistan. All rights reserved.</p>
+          <p>© ${new Date().getFullYear()} CodEarn Pakistan. All rights reserved.</p>
           <p>Samundri, Faisalabad, Pakistan</p>
         </div>
       </div>
@@ -578,7 +578,7 @@ export function generatePaymentRejectionEmail(data: { name: string; courseName: 
           </p>
         </div>
         <div class="footer">
-          <p>© ${new Date().getFullYear()} CodEarn Tech Pakistan. All rights reserved.</p>
+          <p>© ${new Date().getFullYear()} CodEarn Pakistan. All rights reserved.</p>
           <p>Support: support@codearntech.cloud</p>
         </div>
       </div>
@@ -737,13 +737,13 @@ export function getWelcomeEmailTemplate(email: string, unsubscribeToken: string)
           <h1>Welcome to Our Newsletter!</h1>
         </div>
         <div class="content">
-          <h2>Thank you for subscribing to CodEarn Tech!</h2>
+          <h2>Thank you for subscribing to CodEarn!</h2>
           <p>Hi there,</p>
           <p>We're excited to have you on board. You'll now receive the latest updates, news, and exclusive content directly in your inbox.</p>
           <p>If you have any questions, feel free to reply to this email.</p>
           <div class="footer">
             <p>You're receiving this because you subscribed to our newsletter.</p>
-            <p><a href="${unsubscribeUrl}" class="unsubscribe">Unsubscribe</a> | © ${new Date().getFullYear()} CodEarn Tech</p>
+            <p><a href="${unsubscribeUrl}" class="unsubscribe">Unsubscribe</a> | © ${new Date().getFullYear()} CodEarn</p>
           </div>
         </div>
       </div>
@@ -802,12 +802,12 @@ export function getNewsletterTemplate(content: string, unsubscribeToken: string)
             </div>
           </div>
           <div class="footer">
-            <p>Sent with ❤️ from <strong>CodEarn Tech Team</strong></p>
+            <p>Sent with ❤️ from <strong>CodEarn Team</strong></p>
             <p>Samundri, Faisalabad, Pakistan</p>
             <p style="margin-top: 15px; border-top: 1px solid #e2e8f0; padding-top: 15px;">
               Don't want these emails? <a href="${unsubscribeUrl}" class="unsubscribe">Unsubscribe here</a>
             </p>
-            <p>© ${new Date().getFullYear()} CodEarn Tech. All rights reserved.</p>
+            <p>© ${new Date().getFullYear()} CodEarn. All rights reserved.</p>
           </div>
         </div>
       </div>

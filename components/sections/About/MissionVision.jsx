@@ -201,7 +201,7 @@ export function MissionVision() {
               CT
             </div>
             <div className="text-left">
-              <div className="font-semibold text-foreground text-sm">CodEarn Tech Team</div>
+              <div className="font-semibold text-foreground text-sm">CodEarn Team</div>
               <div className="text-xs text-muted-foreground">Founders & Engineers</div>
             </div>
           </div>

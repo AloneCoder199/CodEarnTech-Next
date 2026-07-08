@@ -195,7 +195,7 @@ export function ProductHeroSection() {
             transition={{ delay: 0.1 }}
             className="text-sm font-medium text-muted-foreground uppercase tracking-widest mb-4"
           >
-            From the founder of CodEarn Tech
+            From the founder of CodEarn
           </motion.p>
 
           {/* Product Name */}
@@ -367,7 +367,7 @@ export function ProductHeroSection() {
       "Our mission isn't just to build software—it's to pave the path for your digital success."
     </p>
     <p className="text-sm sm:text-base text-muted-foreground font-medium">
-      The future of <span className="text-primary font-bold">CodEarn Tech</span> is brewing. Stay tuned. 
+      The future of <span className="text-primary font-bold">CodEarn</span> is brewing. Stay tuned. 
     </p>
   </div>
 

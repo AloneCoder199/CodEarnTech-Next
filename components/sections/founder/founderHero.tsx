@@ -91,7 +91,7 @@ export  default function HeroSection() {
   const founder = {
     name: "Muhammad Bilal",
     role: "Founder & Chief Architect",
-    company: "CodEarn Tech",
+    company: "CodEarn",
     location: "Pakistan",
     experience: "2019 — Present",
     tagline: "Building technology that builds people.",

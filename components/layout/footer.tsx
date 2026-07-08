@@ -180,7 +180,7 @@ export function Footer() {
                 <div className="relative w-12 h-12 sm:w-11 sm:h-11 rounded-xl bg-linear-to-br from-codearn-blue via-codearn-purple to-codearn-cyan flex items-center justify-center shadow-lg group-hover:scale-105 transition">
                   <Image
                     src="/logo.webp"
-                    alt="CodEarn Tech Logo"
+                    alt="CodEarn Logo"
                     fill
                     sizes="(max-width: 768px) 100px, 150px" 
                     className="object-contain"
@@ -303,7 +303,7 @@ export function Footer() {
             {/* Copyright Note */}
             <div className="flex items-center gap-1.5 order-2 md:order-1 font-light text-center sm:text-left">
               <Sparkles className="h-3.5 w-3.5 text-muted-foreground/70" />
-              <span>© {new Date().getFullYear()} CodEarn Tech. Built for Excellence.</span>
+              <span>© {new Date().getFullYear()} CodEarn. Built for Excellence.</span>
             </div>
 
             {/* Quick Legal Hyperlinks */}

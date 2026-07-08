@@ -11,7 +11,7 @@ import { UnifiedTestimonials } from "@/components/sections/home/UnifiedTestimoni
 import { EliteQuantumCTA } from "@/components/sections/home/QuantumMobileCTA"
 // ✅ PAGE-SPECIFIC METADATA
 export const metadata: Metadata = {
-  title: "CodEarn Tech | SaaS Development & Software Solutions in Pakistan",
+  title: "CodEarn | SaaS Development & Software Solutions in Pakistan",
   description: "Leading software company in Samundri, Pakistan specializing in SaaS development, custom web apps, and practical training with guaranteed internships. 4+ years experience, 3-month project support.",
   keywords: [
     "SaaS development Pakistan",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "backend development courses"
   ],
   openGraph: {
-    title: "CodEarn Tech | Transform Ideas Into Digital Reality",
+    title: "CodEarn | Transform Ideas Into Digital Reality",
     description: "SaaS development, custom web apps, and practical training with guaranteed internships. Start your journey today!",
     url: "https://www.codearntech.cloud",
     type: "website",
@@ -42,12 +42,12 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "CodEarn Tech - Home",
+            name: "CodEarn - Home",
             description: "Leading software development company in Pakistan",
             url: "https://www.codearntech.cloud",
             mainEntity: {
               "@type": "Organization",
-              name: "CodEarn Tech",
+              name: "CodEarn",
             },
           }),
         }}

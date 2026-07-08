@@ -15,7 +15,7 @@ export default function SubscribeSection() {
         </h2>
         
         <p className="text-muted-foreground text-sm sm:text-base mb-8 leading-relaxed">
-          Curated SaaS blueprints and CodEarn tech drops, delivered without the noise.
+          Curated SaaS blueprints and CodEarn drops, delivered without the noise.
         </p>
 
         {/* Minimalist Form Wrapper - No heavy hover scales, just clean focus */}

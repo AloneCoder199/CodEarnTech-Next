@@ -91,7 +91,7 @@ export default function SuccessPath({ slug }: SuccessPathProps) {
       id: "internship",
       phase: "08",
       title: "Internship",
-      desc: "Direct corporate deployment placement track right inside CodEarn Tech software house systems ecosystem.",
+      desc: "Direct corporate deployment placement track right inside CodEarn software house systems ecosystem.",
       icon: Briefcase,
       badge: "Deployment"
     }

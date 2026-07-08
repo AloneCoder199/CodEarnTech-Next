@@ -6,13 +6,13 @@ import PrivacyPolicyContent from '@/components/sections/privacyPolicey/PrivacyPo
 // import { PrivacyPolicySection } from "@/components/sections/privacy/PrivacyPolicy";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | How We Protect Your Data | CodEarn Tech",
-  description: "Read CodEarn Tech's Privacy Policy to understand how we collect, use, and protect your personal information. Your data security is our priority.",
+  title: "Privacy Policy | How We Protect Your Data | CodEarn",
+  description: "Read CodEarn's Privacy Policy to understand how we collect, use, and protect your personal information. Your data security is our priority.",
   keywords: [
     "privacy policy",
     "data protection",
     "user privacy",
-    "CodEarn Tech privacy",
+    "CodEarn privacy",
     "personal data security",
     "GDPR compliance",
     "privacy practices",

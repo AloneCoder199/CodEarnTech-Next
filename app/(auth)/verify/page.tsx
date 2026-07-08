@@ -113,7 +113,7 @@ export default function VerifyCertificatePage() {
             Verification & Audit Transcript
           </h1>
           <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400 max-w-xl mx-auto font-normal leading-relaxed print:text-xs print:text-neutral-600 print:mt-1">
-            Secure, unalterable data logs confirming the graduation records and completed technical milestones at CodEarn Tech.
+            Secure, unalterable data logs confirming the graduation records and completed technical milestones at CodEarn.
           </p>
         </div>
 
@@ -270,7 +270,7 @@ export default function VerifyCertificatePage() {
                       Want to accelerate your technical expertise like this student?
                     </h3>
                     <p className="text-xs text-neutral-400 font-normal leading-relaxed">
-                      Join CodEarn Tech to learn software development, architectural system engineering, and earn cryptographic verifiable badges.
+                      Join CodEarn to learn software development, architectural system engineering, and earn cryptographic verifiable badges.
                     </p>
                   </div>
 

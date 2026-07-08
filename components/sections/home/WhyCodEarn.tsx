@@ -118,7 +118,7 @@ export const WhyCodEarnPinned = memo(() => {
               </h2>
 
               <p className="text-sm text-muted-foreground leading-relaxed max-w-sm mb-8">
-                We dismantle generic agency paradigms. CodEarn Tech functions as an elite tactical extension of your architecture to maximize system performance.
+                We dismantle generic agency paradigms. CodEarn functions as an elite tactical extension of your architecture to maximize system performance.
               </p>
 
               {/* 6-Step Visual Timeline Progress Rail (Desktop Only) */}

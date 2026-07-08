@@ -5,7 +5,7 @@ import PageLoader from "@/components/ui/page-loader"
 // ✅ ENROLL PAGE SEO - High Conversion for Students
 export const metadata: Metadata = {
   title: "Enroll Now | Programming Courses with Internship Guarantee",
-  description: "Enroll in CodEarn Tech's programming courses. Learn Full Stack Development, Backend & Data Modeling. Guaranteed internship + job placement support. Limited seats available!",
+  description: "Enroll in CodEarn's programming courses. Learn Full Stack Development, Backend & Data Modeling. Guaranteed internship + job placement support. Limited seats available!",
   keywords: [
     "enroll programming course",
     "join coding bootcamp",

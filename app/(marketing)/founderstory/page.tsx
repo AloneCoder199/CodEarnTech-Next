@@ -6,11 +6,11 @@ import type { Metadata } from "next";
 
 // ✅ FOUNDER STORY PAGE SEO - Personal Branding
 export const metadata: Metadata = {
-  title: "Founder Story | The Journey Behind CodEarn Tech",
-  description: "Discover the inspiring journey of CodEarn Tech's founder. From humble beginnings in Samundri to building a leading software company. Learn about our mission and vision.",
+  title: "Founder Story | The Journey Behind CodEarn",
+  description: "Discover the inspiring journey of CodEarn's founder. From humble beginnings in Samundri to building a leading software company. Learn about our mission and vision.",
   keywords: [
     "founder story",
-    "CodEarn Tech founder",
+    "CodEarn founder",
     "software company journey",
     "tech startup Pakistan",
     "entrepreneur story",
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     "inspiring tech story"
   ],
   openGraph: {
-    title: "The Story Behind CodEarn Tech | From Vision to Reality",
-    description: "Discover how a small idea from Samundri grew into a leading software company. The journey, challenges, and vision behind CodEarn Tech.",
+    title: "The Story Behind CodEarn | From Vision to Reality",
+    description: "Discover how a small idea from Samundri grew into a leading software company. The journey, challenges, and vision behind CodEarn.",
     url: "https://www.codearntech.cloud/founderstory",
     type: "article",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: "/founder-og.png",
         width: 1200,
         height: 630,
-        alt: "CodEarn Tech Founder Story",
+        alt: "CodEarn Founder Story",
       },
     ],
   },
@@ -49,10 +49,10 @@ const founderSchema = {
     jobTitle: "Founder & CEO",
     worksFor: {
       "@type": "Organization",
-      name: "CodEarn Tech",
+      name: "CodEarn",
       url: "https://www.codearntech.cloud",
     },
-    description: "Founder of CodEarn Tech, leading software development and training initiatives in Pakistan",
+    description: "Founder of CodEarn, leading software development and training initiatives in Pakistan",
     url: "https://www.codearntech.cloud/founderstory",
     sameAs: [
       // Social profiles add karein
