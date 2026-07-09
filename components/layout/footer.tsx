@@ -194,8 +194,9 @@ export function Footer() {
                   <span className="text-gradient">CodEarn</span>
                 </span>
                 <span className="text-[9px] sm:text-[10px] tracking-[0.18em] text-muted-foreground uppercase">
-                  Tech
-                </span>
+  Technology Company
+</span>
+
               </div>
             </Link>
 
