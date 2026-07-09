@@ -11,7 +11,7 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://www.codearntech.cloud/logo.webp</image:loc>
-      <image:title>CodEarn - Learn and Earn Technology</image:title>
+      <image:title>CodEarn - Software Company</image:title>
     </image:image>
   </url>
 
@@ -19,16 +19,24 @@
   <url>
     <loc>https://www.codearntech.cloud/products/</loc>
     <lastmod>2026-02-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
-  <!-- Book a Call -->
+  <!-- Solutions -->
   <url>
-    <loc>https://www.codearntech.cloud/book-call/</loc>
+    <loc>https://www.codearntech.cloud/solutions/</loc>
     <lastmod>2026-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Studies -->
+  <url>
+    <loc>https://www.codearntech.cloud/case-studies/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Training -->
@@ -36,22 +44,7 @@
     <loc>https://www.codearntech.cloud/training/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- solutions -->
-  <url>
-    <loc>https://www.codearntech.cloud/solutions/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-   <!-- Case-study -->
-     <url>
-    <loc>https://www.codearntech.cloud/case-studies/</loc>
-    <lastmod>2026-02-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Blogs -->
@@ -59,7 +52,15 @@
     <loc>https://www.codearntech.cloud/blogs/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Book a Call -->
+  <url>
+    <loc>https://www.codearntech.cloud/book-call/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
   <!-- Founder Story -->
@@ -67,7 +68,7 @@
     <loc>https://www.codearntech.cloud/founderstory/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
   <!-- About -->
@@ -75,7 +76,7 @@
     <loc>https://www.codearntech.cloud/about/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
 
   <!-- Contact -->
@@ -83,7 +84,7 @@
     <loc>https://www.codearntech.cloud/contact/</loc>
     <lastmod>2026-02-27</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
 
 </urlset>
