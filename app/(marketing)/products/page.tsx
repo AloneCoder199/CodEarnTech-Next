@@ -1,10 +1,16 @@
-import { HeroProductSection } from "@/components/sections/products/ProductCard";
-import { ProductHeroSection } from "@/components/sections/products/ProductHero";
-import { RoadmapSection } from "@/components/sections/products/ProductsRoadmap";
-import TrustAuthoritySection from "@/components/sections/products/AuthoritySection";
-import FinalCTASection from "@/components/sections/products/ProductCta";
+import  ProductsHero  from "@/components/sections/products/ProductHero";
 import type { Metadata } from "next";
-import SubscribeSection from "@/components/layout/subscription";
+import LiveProduct from "@/components/sections/products/live-product";
+import Problem from "@/components/sections/products/problem";
+import ProductFlow from "@/components/sections/products/product-flow";
+import HowItWorks from "@/components/sections/products/how-it-works";
+import Capabilities from "@/components/sections/products/capabilities";
+import ProductExperience from "@/components/sections/products/product-experience";
+import WhoItsFor from "@/components/sections/products/who-its-for";
+import WhyWeBuilt from "@/components/sections/products/why-we-built";
+import ProductStatus from "@/components/sections/products/product-status";
+import WhatsNext from "@/components/sections/products/whats-next";
+import FinalCTA from "@/components/sections/products/final-cta";
 
 // ✅ PRODUCTS PAGE SEO
 export const metadata: Metadata = {
@@ -104,12 +110,18 @@ export default function ProductsPage() {
         }}
       />
       
-      <ProductHeroSection />
-      <HeroProductSection />
-      <RoadmapSection />
-      <TrustAuthoritySection />
-      <SubscribeSection/>
-      <FinalCTASection />
+      <ProductsHero />
+      <LiveProduct/>
+      <Problem/>
+      <ProductFlow/>
+      <HowItWorks/>
+      <Capabilities/>
+      <ProductExperience/>
+      <WhoItsFor/>
+      <WhyWeBuilt/>
+      <ProductStatus/>
+      <WhatsNext/>
+      <FinalCTA/>
     </>
   );
 }

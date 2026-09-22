@@ -109,16 +109,9 @@ export function AboutHero() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: 0.6 }}
               >
-                <div className="flex -space-x-3">
-                  {[1,2,3,4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-linear-to-br from-gray-300 to-gray-400 flex items-center justify-center text-xs font-bold text-white">
-                      {String.fromCharCode(64+i)}
-                    </div>
-                  ))}
-                </div>
+                
                 <div className="text-sm">
-                  <span className="font-semibold text-foreground">50+ founders</span>
-                  <span className="text-muted-foreground"> trusted us with their vision</span>
+                  <span className="font-semibold text-foreground">Working with founders and businesses</span>
                 </div>
               </motion.div>
 
@@ -136,9 +129,9 @@ export function AboutHero() {
                   </Link>
                 </Button>
                 <Button variant="ghost" size="lg" asChild className="rounded-full gap-2">
-                  <Link href="/founderstory">
+                  <Link href="/founder">
                     <Play className="w-4 h-4" />
-                    Founder Story
+                    Founder
                   </Link>
                 </Button>
               </motion.div>
@@ -211,7 +204,6 @@ export function AboutHero() {
                 {/* Side Badge */}
                 <div className="absolute -top-4 -right-4 bg-card border border-border px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
                   <Users className="w-4 h-4 text-primary" />
-                  <span className="text-sm font-medium">15+ Team Members</span>
                 </div>
               </div>
             </motion.div>

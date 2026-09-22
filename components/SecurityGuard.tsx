@@ -447,21 +447,26 @@ export default function SecurityGuard() {
     }
 
     // ❌ Keyboard Shortcuts
-    const disableKeys = (e: KeyboardEvent) => {
-      const key = e.key.toLowerCase()
-      const isDevToolKey = (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
-        (e.metaKey && e.altKey && ["i", "j"].includes(key)) ||
-        (e.ctrlKey && key === "u")
-      )
+   const disableKeys = (e: KeyboardEvent) => {
+  // Safety guard — mobile keyboards, IME composition events (Urdu/Arabic),
+  // browser extensions, and some accessibility tools may fire keydown
+  // events without a valid `e.key`. Bail out gracefully.
+  if (!e.key || typeof e.key !== "string") return;
 
-      if (isDevToolKey && isInitializedRef.current) {
-        e.preventDefault()
-        e.stopPropagation()
-        triggerGuard("shortcut")
-      }
-    }
+  const key = e.key.toLowerCase();
+
+  const isDevToolKey =
+    e.key === "F12" ||
+    (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(key)) ||
+    (e.metaKey && e.altKey && ["i", "j"].includes(key)) ||
+    (e.ctrlKey && key === "u");
+
+  if (isDevToolKey && isInitializedRef.current) {
+    e.preventDefault();
+    e.stopPropagation();
+    triggerGuard("shortcut");
+  }
+};
 
     // 🕵️ DevTools Detection - Smart check
     const detectDevTools = () => {

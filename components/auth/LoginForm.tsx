@@ -340,7 +340,7 @@ export default function LoginForm() {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
-                  SOC 2 Compliant
+                  
                 </span>
               </motion.div>
 
@@ -505,11 +505,9 @@ export default function LoginForm() {
           transition={{ delay: 0.5 }}
           className="mt-6 flex items-center justify-center gap-4 text-xs text-muted-foreground"
         >
-          <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
+          <Link href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
           <span>•</span>
           <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-          <span>•</span>
-          <Link href="/security" className="hover:text-foreground transition-colors">Security</Link>
         </motion.div>
       </motion.div>
     </div>

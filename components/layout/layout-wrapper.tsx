@@ -1,19 +1,36 @@
+// components/layout/layout-wrapper.tsx
+
 "use client";
+
 import { usePathname } from "next/navigation";
-import { Navbar } from "./navbar";
-import { Footer } from "./footer";
+import { shouldHideGlobalLayout } from "@/lib/route-config";
+import {Navbar} from "@/components/layout/navbar";   // ← tumhara actual path
+import {Footer} from "@/components/layout/footer";   // ← tumhara actual path
+// baaki imports...
 
-export default function LayoutWrapper({ children }: { children: React.ReactNode }) {
+export default function LayoutWrapper({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
-  
-  // Is array mein wo saaray paths likhein jahan Navbar/Footer nahi chahiye
-  const hideLayout = pathname.startsWith("/student/dashboard");
 
+  /* ============================================================
+     FULLSCREEN ROUTES — hide navbar + footer
+  ============================================================ */
+  if (shouldHideGlobalLayout(pathname)) {
+    return <main className="min-h-screen">{children}</main>;
+  }
+
+  /* ============================================================
+     NORMAL LAYOUT — with navbar + footer
+  ============================================================ */
   return (
-    <div className="relative min-h-screen flex flex-col">
-      {!hideLayout && <Navbar />}
-      <main className="flex-1">{children}</main>
-      {!hideLayout && <Footer />}
-    </div>
+    <>
+      <Navbar />
+      {/* tumhara existing structure jaisa tha waisa hi rakho */}
+      {children}
+      <Footer />
+    </>
   );
 }

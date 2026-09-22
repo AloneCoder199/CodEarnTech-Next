@@ -1,6 +1,5 @@
 import { Hero } from "@/components/sections/home/hero"
 import type { Metadata } from "next"
-import SubscribeSection from "@/components/layout/subscription"
 import { TrustedBy } from "@/components/sections/home/TrustedBy"
 import { ProblemsWeSolve } from "@/components/sections/home/ProblemsWeSolve"
 import { SolutionsEngine } from "@/components/sections/home/TechCanvasVisual"
@@ -56,11 +55,10 @@ export default function Home() {
       <TrustedBy/>
       <ProblemsWeSolve/>
       <SolutionsEngine/>
-      <CaseStudiesMatrix/>
+      {/* <CaseStudiesMatrix/> */}
       <WhyCodEarnPinned/>
       <AcademyUniversalDeck/>
-      <UnifiedTestimonials/>
-      <SubscribeSection/>
+      {/* <UnifiedTestimonials/> */}
       <EliteQuantumCTA/>
     </>
   )

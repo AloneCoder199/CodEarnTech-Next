@@ -42,7 +42,7 @@ const BOTTLENECKS = [
     tag: "Infrastructure",
     problem: "System Scaling Errors & Database Lag",
     solution: "Scalable Custom SaaS Architecture",
-    description: "Prepare your application for millions of real-time concurrent requests. Decoupled edge servers, global distribution, and clean, modular database designs.",
+    description: "Prepare your application for Architectures designed with scalability in mind. Decoupled edge servers, global distribution, and clean, modular database designs.",
     icon: Layers,
   },
 ];

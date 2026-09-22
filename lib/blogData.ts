@@ -141,9 +141,9 @@ export const blogPosts: BlogPost[] = [
       <p>Building scalable SaaS architecture is a journey, not a destination. Start with a solid foundation, choose patterns that match your current scale and team size, and evolve your architecture as you grow. Focus on modularity, observability, and automation from day one. Remember that the best architecture is one that your team can understand, maintain, and evolve. By following the patterns and practices outlined in this guide, you'll be well-equipped to build SaaS applications that can grow from hundreds to millions of users while maintaining performance, security, and reliability.</p>
     `,
     author: {
-      name: 'Sarah Chen',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100',
-      role: 'Senior Architect'
+      name: 'Muhammad Bilal',
+      avatar: '/founder/portrait.jpg',
+      role: 'Founder, CodEarn'
     },
     category: 'Engineering',
     tags: ['SaaS', 'Architecture', 'Scalability', 'Microservices', 'Cloud', 'DevOps'],
@@ -328,9 +328,9 @@ export const blogPosts: BlogPost[] = [
       <p>The future of React is hybrid—combining the performance and simplicity of server rendering with the interactivity of client-side JavaScript. By mastering Server Components now, you're preparing your applications for the next generation of web development.</p>
     `,
     author: {
-      name: 'Mike Johnson',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100',
-      role: 'Frontend Lead'
+      name: 'CodEarn Engineering',
+      avatar: '/founder/codearn-logo.png',
+      role: 'Engineering Team'
     },
     category: 'Development',
     tags: ['React', 'Next.js', 'Performance', 'Frontend', 'JavaScript', 'Web Development'],
@@ -480,9 +480,9 @@ export const blogPosts: BlogPost[] = [
       <p>Remember that AI augments developers, it doesn't replace them. The most productive engineers in our study used AI to handle routine tasks while focusing their expertise on architecture, complex problem solving, and understanding user needs. Adopt AI tools to eliminate drudgery, not to eliminate thinking.</p>
     `,
     author: {
-      name: 'David Park',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100',
-      role: 'Tech Lead'
+      name: 'Muhammad Bilal',
+      avatar: '/founder/portrait.jpg',
+      role: 'Founder, CodEarn'
     },
     category: 'AI & Tools',
     tags: ['AI', 'Productivity', 'Tools', 'Development', 'Machine Learning', 'Automation'],
@@ -1035,9 +1035,9 @@ export const blogPosts: BlogPost[] = [
       <p>Remember that types are a means to an end—reliable, maintainable software. Don't pursue type sophistication for its own sake. The best TypeScript code is code that other developers can understand and modify confidently. Use these patterns to make impossible states unrepresentable, enforce business rules at compile time, and create APIs that guide users toward correct usage.</p>
     `,
     author: {
-      name: 'Emma Wilson',
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100',
-      role: 'Senior Developer'
+      name: 'CodEarn Engineering',
+      avatar: '/founder/codearn-logo.png',
+      role: 'Engineering Team'
     },
     category: 'TypeScript',
     tags: ['TypeScript', 'JavaScript', 'Patterns', 'Advanced', 'Type System', 'Programming'],
@@ -1424,9 +1424,9 @@ export const blogPosts: BlogPost[] = [
       <p>Remember that a design system is a product serving internal customers—your designers and developers. Gather feedback continuously, measure adoption and satisfaction, and evolve the system based on real usage patterns. The best design systems grow organically with the products they support, becoming indispensable infrastructure for delivering high-quality user experiences at scale.</p>
     `,
     author: {
-      name: 'Lisa Chen',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100',
-      role: 'Design Systems Lead'
+      name: 'Muhammad Bilal',
+      avatar: '/founder/portrait.jpg',
+      role: 'Founder, CodEarn'
     },
     category: 'Design',
     tags: ['Design Systems', 'UI/UX', 'Components', 'Figma', 'React', 'Frontend'],

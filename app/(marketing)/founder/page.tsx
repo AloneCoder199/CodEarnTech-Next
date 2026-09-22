@@ -1,7 +1,15 @@
+import Beliefs from "@/components/sections/founder/beliefs";
+import Building from "@/components/sections/founder/building";
+import FindOnline from "@/components/sections/founder/find-online";
+import FounderLetter from "@/components/sections/founder/founder-letter";
 import HeroSection from "@/components/sections/founder/founderHero";
-import { FounderMessage } from "@/components/sections/founder/FounderMessage";
-import { IntroductionSection } from "@/components/sections/founder/Introduction";
-import { ProblemSection } from "@/components/sections/founder/TheProblem";
+import HumanStory from "@/components/sections/founder/human-story";
+import Journey from "@/components/sections/founder/journey";
+import KeepsMoving from "@/components/sections/founder/keeps-moving";
+import LetsBuild from "@/components/sections/founder/lets-build";
+import Shipped from "@/components/sections/founder/shipped";
+import WhatsNext from "@/components/sections/founder/whats-next";
+import WhyCodEarn from "@/components/sections/founder/why-codearn";
 import type { Metadata } from "next";
 
 // ✅ FOUNDER STORY PAGE SEO - Personal Branding
@@ -23,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Story Behind CodEarn | From Vision to Reality",
     description: "Discover how a small idea from Samundri grew into a leading software company. The journey, challenges, and vision behind CodEarn.",
-    url: "https://www.codearntech.cloud/founderstory",
+    url: "https://www.codearntech.cloud/founder",
     type: "article",
     images: [
       {
@@ -35,7 +43,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://www.codearntech.cloud/founderstory",
+    canonical: "https://www.codearntech.cloud/founder",
   },
 };
 
@@ -53,7 +61,7 @@ const founderSchema = {
       url: "https://www.codearntech.cloud",
     },
     description: "Founder of CodEarn, leading software development and training initiatives in Pakistan",
-    url: "https://www.codearntech.cloud/founderstory",
+    url: "https://www.codearntech.cloud/founder",
     sameAs: [
       // Social profiles add karein
       "https://linkedin.com/in/founder-profile",
@@ -62,7 +70,7 @@ const founderSchema = {
   },
 };
 
-export default function FounderStoryPage() {
+export default function founderPage() {
   return (
     <>
       {/* ✅ Founder Schema */}
@@ -89,7 +97,7 @@ export default function FounderStoryPage() {
                 "@type": "ListItem",
                 position: 2,
                 name: "Founder Story",
-                item: "https://www.codearntech.cloud/founderstory",
+                item: "https://www.codearntech.cloud/founder",
               },
             ],
           }),
@@ -97,9 +105,17 @@ export default function FounderStoryPage() {
       />
       
       <HeroSection />
-      <IntroductionSection />
-      <ProblemSection />
-      <FounderMessage />
+      <HumanStory/>
+      <Journey/>
+      <WhyCodEarn/>
+      <Beliefs/>
+      <Building/>
+      <Shipped/>
+      <FindOnline/>
+      <FounderLetter/>
+      <KeepsMoving/>
+      <WhatsNext/>
+      <LetsBuild/>
     </>
   );
 }

@@ -730,7 +730,7 @@ export default function RegisterForm() {
                 <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1.5">
                     <Shield className="w-3.5 h-3.5 text-green-500" />
-                    SOC 2 Compliant
+                    
                   </span>
                   <span className="flex items-center gap-1.5">
                     <Lock className="w-3.5 h-3.5 text-green-500" />
@@ -839,7 +839,7 @@ export default function RegisterForm() {
                       </li>
                       <li className="flex items-start gap-2">
                         <Shield className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        SOC 2 Type II certified infrastructure
+                        
                       </li>
                       <li className="flex items-start gap-2">
                         <Shield className="w-4 h-4 text-primary shrink-0 mt-0.5" />
@@ -867,7 +867,7 @@ export default function RegisterForm() {
                     I Understand & Agree
                   </Button>
                   <Link 
-                    href="/privacy" 
+                    href="/privacy-policy" 
                     className="block text-center text-sm text-primary hover:underline mt-3"
                     onClick={() => setShowPrivacyModal(false)}
                   >

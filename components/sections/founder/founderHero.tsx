@@ -1,470 +1,203 @@
-"use client"
 
-import { useRef, useState, useEffect } from "react"
-import { motion, useScroll, useTransform, useInView, useMotionValue, useSpring } from "framer-motion"
-import Image from "next/image"
-import { ArrowDownRight, Quote, Sparkles, MapPin, Calendar, ChevronRight } from "lucide-react"
 
-// Text scramble hook for that "hacker" effect
-function useTextScramble(text: string, trigger: boolean) {
-  const [display, setDisplay] = useState("")
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*"
-  
-  useEffect(() => {
-    if (!trigger) return
-    
-    let iteration = 0
-    const interval = setInterval(() => {
-      setDisplay(
-        text
-          .split("")
-          .map((char, index) => {
-            if (char === " ") return " "
-            if (index < iteration) return text[index]
-            return chars[Math.floor(Math.random() * chars.length)]
-          })
-          .join("")
-      )
-      
-      if (iteration >= text.length) {
-        clearInterval(interval)
-      }
-      
-      iteration += 1 / 2
-    }, 30)
-    
-    return () => clearInterval(interval)
-  }, [trigger, text])
-  
-  return display || text
-}
 
-export  default function HeroSection() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const imageRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" })
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-   const [mounted, setMounted] = useState(false)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  })
-  
-   useEffect(() => {
-    setMounted(true)
-  }, [])
+"use client";
 
-  // Smooth parallax
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, 100])
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -50])
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  
-  // Mouse tracking for spotlight effect
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
-  
-  const springConfig = { damping: 25, stiffness: 150 }
-  const spotlightX = useSpring(mouseX, springConfig)
-  const spotlightY = useSpring(mouseY, springConfig)
-  
-  // 3D tilt effect for image
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), springConfig)
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), springConfig)
-  
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = containerRef.current?.getBoundingClientRect()
-    if (!rect) return
-    
-    const x = (e.clientX - rect.left) / rect.width - 0.5
-    const y = (e.clientY - rect.top) / rect.height - 0.5
-    
-    mouseX.set(x)
-    mouseY.set(y)
-    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })
-  }
-  
-  // Scramble text effects
-  const firstName = useTextScramble("Muhammad", isInView)
-  const lastName = useTextScramble("Bilal", isInView)
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Sparkles, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
-  // Founder data - authentic and meaningful
-  const founder = {
-    name: "Muhammad Bilal",
-    role: "Founder & Chief Architect",
-    company: "CodEarn",
-    location: "Pakistan",
-    experience: "2019 — Present",
-    tagline: "Building technology that builds people.",
-    story: {
-      hook: "From a village with no internet to architecting digital futures.",
-      belief: "I don't just write code. I bridge the gap between what is and what could be. Every product we ship carries a piece of that journey—from limitation to possibility."
-    },
-    stats: [
-      { value: "5+", label: "Years", sublabel: "Crafting Code" },
-      { value: "100+", label: "Developers", sublabel: "Mentored" },
-      { value: "50+", label: "Products", sublabel: "Shipped" }
-    ],
-    expertise: ["System Architecture", "Team Building", "Product Strategy"]
-  }
-
+export default function FounderHero() {
   return (
-    <section 
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      className="relative min-h-screen bg-background overflow-hidden selection:bg-primary/30 selection:text-primary top-10"
-    >
-      {/* Cinematic Lighting Layer */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Base ambient */}
-        <div className="absolute inset-0 bg-linear-to-br from-background via-muted/30 to-background" />
-        
-        {/* Animated spotlight following mouse */}
-        <motion.div
-          className="absolute w-200 h-200 rounded-full bg-primary/5 blur-[150px] opacity-60"
-          style={{
-            x: spotlightX,
-            y: spotlightY,
-            translateX: "-50%",
-            translateY: "-50%",
-            left: mousePosition.x,
-            top: mousePosition.y,
-          }}
-        />
-        
-        {/* Secondary accent light */}
-        <motion.div 
-          className="absolute top-1/4 right-1/4 w-150 h-150 rounded-full bg-accent/10 blur-[120px]"
-          animate={{ 
-            scale: [1, 1.3, 1],
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        
-        {/* Grid with fade */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.2)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.2)_1px,transparent_1px)] bg-size-[100px_100px] mask-[radial-gradient(ellipse_at_center,black_40%,transparent_100%)]" />
-        
-        {/* Noise texture overlay for premium feel */}
-        <div className="absolute inset-0 opacity-[0.015] pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }} />
+    <section className="relative w-full overflow-hidden bg-background pt-32 pb-20 md:pt-40 md:pb-28">
+      {/* Background Gradient Glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px] dark:bg-primary/15" />
+        <div className="absolute top-1/2 right-0 h-[400px] w-[400px] rounded-full bg-primary/10 blur-[120px] dark:bg-primary/10" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_60%,var(--background))]" />
       </div>
 
-      {/* Floating Tech Particles */}
-{mounted && (
-  <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    {[...Array(6)].map((_, i) => {
-      const x = Math.random() * window.innerWidth
-      const y = Math.random() * window.innerHeight
-      const duration = 10 + Math.random() * 10
-      const delay = Math.random() * 5
+      {/* Subtle Grid Pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
 
-      return (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 rounded-full bg-primary/20"
-          initial={{ x, y, opacity: 0 }}
-          animate={{ y: y - 120, opacity: [0, 1, 0] }}
-          transition={{
-            duration,
-            repeat: Infinity,
-            delay,
-            ease: "linear",
-          }}
-        />
-      )
-    })}
-  </div>
-)}
-      {/* Main Content */}
-      <motion.div 
-        className="relative z-10 container mx-auto px-6 lg:px-12 min-h-screen flex flex-col justify-center py-24 lg:py-0"
-        style={{ opacity }}
-      >
-        
-        {/* Asymmetric Layout with 3D perspective */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center min-h-[90vh] perspective-1000">
-          
-          {/* Left Content */}
-          <motion.div 
-            className="lg:col-span-7 order-2 lg:order-1 space-y-5 relative"
-            style={{ y: contentY }}
-          >
-            {/* Role Badge with glow effect */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-3"
-            >
-              <div className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/5 border border-primary/20 backdrop-blur-md overflow-hidden">
-                <div className="absolute inset-0 bg-linear-to-r from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <Sparkles className="w-4 h-4 text-primary animate-pulse" />
-                <span className="relative text-sm font-semibold text-primary tracking-wider uppercase">
-                  {founder.role}
-                </span>
-              </div>
-              
-              <div className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-muted/50 border border-border/50 text-muted-foreground backdrop-blur-sm">
-                <MapPin className="w-3.5 h-3.5" />
-                <span className="text-xs font-medium tracking-wide">{founder.location}</span>
-              </div>
-            </motion.div>
-
-            {/* Name with Scramble Effect */}
-            <div className="space-y-2 relative">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <h1 className="text-5xl sm:text-5xl lg:text-5xl xl:text-8xl font-bold tracking-tighter text-foreground leading-[0.9] font-mono">
-                  {firstName}
-                </h1>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.5, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
-                <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-8xl font-bold tracking-tighter leading-[0.9]">
-                  <span className="relative inline-block">
-                    <span className="absolute -inset-2 bg-linear-to-r from-primary/20 to-accent/20 blur-2xl rounded-full" />
-                    <span className="relative text-transparent bg-clip-text bg-linear-to-r from-primary via-primary/80 to-accent">
-                      {lastName}
-                    </span>
-                  </span>
-                </h1>
-              </motion.div>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* LEFT — CONTENT */}
+          <div className="lg:col-span-7">
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/50 px-4 py-1.5 backdrop-blur-sm">
+              <Sparkles className="h-3.5 w-3.5 text-primary" />
+              <span className="text-xs font-medium tracking-[0.2em] text-muted-foreground uppercase">
+                The Person Behind CodEarn
+              </span>
             </div>
 
-            {/* Company & Experience */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.7 }}
-              className="flex items-center gap-4 text-muted-foreground"
-            >
-              <span className="text-xl font-semibold text-foreground">{founder.company}</span>
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50" />
-              <div className="flex items-center gap-2 text-sm font-mono">
-                <Calendar className="w-4 h-4 text-primary/70" />
-                <span>{founder.experience}</span>
-              </div>
-            </motion.div>
+            {/* Name */}
+            <h1 className="mt-6 text-5xl font-bold tracking-tight text-foreground sm:text-6xl md:text-7xl">
+              Muhammad{" "}
+              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                Bilal
+              </span>
+            </h1>
 
-            {/* Expertise Tags
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.8 }}
-              className="flex flex-wrap gap-2"
-            >
-              {founder.expertise.map((skill, idx) => (
-                <motion.span
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ delay: 0.8 + idx * 0.1 }}
-                  className="px-3 py-1.5 text-xs font-medium rounded-md bg-muted border border-border text-muted-foreground hover:border-primary/30 hover:text-primary transition-colors duration-300 cursor-default"
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </motion.div> */}
+            {/* Subheading */}
+            <p className="mt-4 text-xl font-medium text-foreground/80 md:text-2xl">
+              Founder &amp; Software Architect
+            </p>
 
-            {/* The Hook - Premium Border Treatment */}
-            <motion.div 
-              className="relative pl-5 py-2"
-              initial={{ opacity: 0, x: -20 }}
-              animate={isInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ delay: 0.9, duration: 0.6 }}
-            >
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-linear-to-b from-primary via-primary/50 to-transparent rounded-full" />
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground leading-tight tracking-tight">
-                {founder.story.hook}
-              </p>
-              <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                {founder.story.belief}
-              </p>
-            </motion.div>
+            {/* Positioning Statement */}
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+              Building software products, businesses and technology
+              experiences around{" "}
+              <span className="font-medium text-foreground">
+                real-world problems
+              </span>
+              .
+            </p>
 
-            {/* Magnetic CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 1.1, duration: 0.6 }}
-              className="flex flex-wrap items-center gap-4 pt-6 "
-            >
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold text-base overflow-hidden shadow-2xl shadow-primary/25 bottom-5"
+            {/* Location chip (optional) */}
+            <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+              <MapPin className="h-4 w-4 text-primary" />
+              <span>Pakistan • Building globally</span>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button
+                asChild
+                size="lg"
+                className="group h-12 rounded-full bg-primary px-7 text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:shadow-xl hover:shadow-primary/30"
               >
-                <span className="absolute inset-0 bg-linear-to-r from-primary via-primary/90 to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="relative">Explore Journey</span>
-                <ArrowDownRight className="relative w-5 h-5 group-hover:translate-x-1 group-hover:translate-y-1 transition-transform duration-300" />
-              </motion.button>
-              
-              {/* <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group inline-flex items-center gap-2 px-6 py-4 rounded-full border border-border bg-background/50 backdrop-blur-sm hover:bg-muted transition-all duration-300 text-foreground font-medium"
+                <Link href="https://www.linkedin.com/in/mbilal1205/" target="_blank">
+                  Explore My Journey
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="group h-12 rounded-full border-border bg-transparent px-7 hover:bg-accent"
               >
-                <span>View Projects</span>
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </motion.button> */}
-            </motion.div>
+                <Link href="/contact">
+                  Connect With Me
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+            </div>
 
-          </motion.div>
+            {/* Trust Line */}
+            <div className="mt-14 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs font-medium tracking-wider text-muted-foreground uppercase">
+              <span>Software Engineer</span>
+              <span className="text-primary">•</span>
+              <span>Founder</span>
+              <span className="text-primary">•</span>
+              <span>Product Builder</span>
+              <span className="text-primary">•</span>
+              <span>Educator</span>
+            </div>
+          </div>
 
-          {/* Right - 3D Image with Tilt */}
-          <motion.div 
-            className="lg:col-span-5 order-1 lg:order-2 relative"
-            style={{ y: imageY }}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1, delay: 0.4 }}
-          >
-            <motion.div 
-              ref={imageRef}
-              className="relative aspect-4/5 max-w-md mx-auto lg:max-w-none"
-              style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-              }}
-            >
-              {/* Multi-layered frame effect */}
-              <div className="absolute inset-0 bg-linear-to-br from-primary/20 to-accent/20 rounded-[3rem] rotate-6 transform t-translate-z-5 blur-sm" />
-              <div className="absolute inset-0 bg-linear-to-br from-accent/10 to-primary/10 rounded-[3rem] -rotate-3 transform -translate-z-2.5" />
-              
-              {/* Main Image Container with Glass */}
-              <div className="relative h-full rounded-[2.5rem] overflow-hidden border border-border/50 bg-muted shadow-2xl shadow-primary/10 backdrop-blur-xl">
-                {/* Shine effect */}
-                <motion.div
-                  className="absolute inset-0 bg-linear-to-tr from-transparent via-white/10 to-transparent z-10 pointer-events-none"
-                  animate={{
-                    x: ["-100%", "100%"],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatDelay: 5,
-                    ease: "easeInOut",
-                  }}
-                />
-                
-                <Image
-                  src="/founder.webp"
-                  alt={`${founder.name} — ${founder.role}`}
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-110"
-                  priority
-                  quality={95}
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                />
-                
-                {/* Gradient overlays */}
-                <div className="absolute inset-0 bg-linear-to-t from-background via-background/10 to-transparent opacity-80" />
-                <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent" />
-                
-                {/* Floating Stats Card - Premium Glass */}
-                <motion.div 
-                  className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-background/60 backdrop-blur-2xl border border-white/10 shadow-2xl"
-                  initial={{ opacity: 0, y: 40, rotateX: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
-                  transition={{ delay: 1.3, duration: 0.8, type: "spring" }}
-                  style={{ transformStyle: "preserve-3d", translateZ: "30px" }}
-                >
-                  <div className="grid grid-cols-3 gap-4 divide-x divide-border/30">
-                    {founder.stats.map((stat, index) => (
-                      <div key={index} className={`text-center ${index !== 0 ? 'pl-4' : ''}`}>
-                        <motion.div 
-                          className="text-3xl font-bold text-foreground mb-1 font-mono"
-                          initial={{ opacity: 0, scale: 0.5 }}
-                          animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                          transition={{ delay: 1.5 + index * 0.1, type: "spring" }}
-                        >
-                          {stat.value}
-                        </motion.div>
-                        <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                          {stat.label}
-                        </div>
-                        <div className="text-[10px] text-muted-foreground/60 mt-0.5">
-                          {stat.sublabel}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
+          {/* RIGHT — VISUAL */}
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-md">
+              {/* Rotating Ring */}
+              <div className="absolute -inset-6 -z-10 rounded-full border border-dashed border-primary/20 [animation:spin_40s_linear_infinite]" />
 
-              {/* Floating Quote - 3D positioned */}
-      <motion.div 
-  className="absolute -top-4 -left-4 lg:-left-10 p-4 rounded-2xl bg-[#0a0a0a]/60 backdrop-blur-2xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] max-w-52.5 hidden sm:block group"
-  initial={{ opacity: 0, x: -30, rotate: -6 }}
-  animate={isInView ? { opacity: 1, x: 0, rotate: -3 } : {}}
-  transition={{ delay: 1.4, duration: 0.8, type: "spring" }}
-  whileHover={{ y: -5, rotate: 0, borderColor: "rgba(var(--primary), 0.5)" }} 
+              {/* Glow behind image */}
+              <div className="absolute inset-0 -z-10 rounded-[2rem] bg-gradient-to-tr from-primary/30 via-primary/10 to-transparent blur-2xl" />
+
+              {/* Portrait Frame */}
+              <div className="relative overflow-hidden rounded-[2rem] border border-border bg-card shadow-2xl shadow-primary/10">
+                <div 
+  className="relative aspect-[4/5] w-full select-none" 
+  onContextMenu={(e) => e.preventDefault()}
 >
-  {/* Top Accent Line (Decorative) */}
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-primary/50 rounded-full" />
+  {/* Actual Image */}
+  <Image
+    src="/founder.webp"
+    alt="Muhammad Bilal — Founder of CodEarn"
+    fill
+    priority
+    className="object-cover pointer-events-none"
+    draggable={false}
+  />
 
-  <Quote className="w-5 h-5 text-primary mb-2 opacity-80" />
-  
-  <p className="text-[13px] text-white/90 leading-[1.4] font-medium tracking-tight">
-    "Every limitation is just an <span className="text-primary italic">undeclared variable</span> waiting to be solved."
-  </p>
+  {/* Invisible Protection Layer (Z-index text se neche rakha hai) */}
+  <div className="absolute inset-0 z-10 bg-transparent" />
 
-  <div className="mt-4 flex items-center gap-3 bg-white/5 p-2 rounded-xl border border-white/5">
-    <div className="shrink-0 w-7 h-7 rounded-lg bg-linear-to-tr from-primary to-blue-600 flex items-center justify-center text-white text-[10px] font-black shadow-inner">
-      M
-    </div>
-    <div className="flex flex-col min-w-0">
-      <span className="text-[11px] font-bold text-white truncate uppercase tracking-wide">
-        Founder's Code
-      </span>
-      <div className="flex items-center gap-1">
-        <span className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
-        <span className="text-[9px] text-white/50 font-mono">EST 2024</span>
-      </div>
-    </div>
+  {/* Bottom gradient overlay */}
+  <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-20" />
+
+  {/* Name on image (Z-index high rakha hai taake text copy ho sakay) */}
+  <div className="absolute bottom-5 left-5 right-5 z-30 select-text">
+    <p className="text-sm font-semibold text-white">
+      Muhammad Bilal
+    </p>
+    <p className="text-xs text-white/70">
+      Founder &amp; Software Architect
+    </p>
   </div>
-</motion.div>
+</div>
 
+              </div>
 
+              {/* Floating Tag — Top Left */}
+              <div className="absolute -left-4 top-8 rounded-xl border border-border bg-card/80 px-3 py-2 text-xs font-medium backdrop-blur-md shadow-lg">
+                <span className="text-primary">●</span> Founder
+              </div>
 
-              {/* Decorative orbs */}
-              <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-              <div className="absolute top-1/3 -right-16 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
-            </motion.div>
-          </motion.div>
+              {/* Floating Tag — Top Right */}
+              <div className="absolute -right-4 top-24 rounded-xl border border-border bg-card/80 px-3 py-2 text-xs font-medium backdrop-blur-md shadow-lg">
+                <span className="text-primary">●</span> Software Architect
+              </div>
 
+              {/* Floating Tag — Bottom Left */}
+              <div className="absolute -left-6 bottom-24 rounded-xl border border-border bg-card/80 px-3 py-2 text-xs font-medium backdrop-blur-md shadow-lg">
+                <span className="text-primary">●</span> Builder
+              </div>
+
+              {/* Currently Building Card */}
+              <div className="absolute -bottom-6 -right-4 w-56 rounded-2xl border border-border bg-card/90 p-4 shadow-xl backdrop-blur-md">
+                <p className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+                  Currently Building
+                </p>
+                <div className="mt-3 space-y-1.5">
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-green-500" />
+                    CodEarn
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                    GigThink
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                    <span className="h-1.5 w-1.5 rounded-full bg-primary/60" />
+                    SaaS Products
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
 
-        {/* Premium Scroll Indicator */}
-        <motion.div 
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ delay: 1.6 }}
-        >
-          <span className="text-xs font-mono text-muted-foreground/60 uppercase tracking-[0.3em]">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-6 h-10 rounded-full border-2 border-border/50 flex justify-center pt-2 bg-background/20 backdrop-blur-sm"
-          >
-            <motion.div 
-              className="w-1 h-2 rounded-full bg-primary/60"
-              animate={{ opacity: [1, 0.2, 1], y: [0, 8, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.div>
-        </motion.div>
-
-      </motion.div>
+      {/* Scroll indicator */}
+      <div className="mt-20 flex justify-center lg:mt-28">
+        <div className="flex flex-col items-center gap-2 text-xs tracking-widest text-muted-foreground uppercase">
+          <span>Scroll</span>
+          <div className="h-10 w-px bg-gradient-to-b from-primary to-transparent" />
+        </div>
+      </div>
     </section>
-  )
+  );
 }

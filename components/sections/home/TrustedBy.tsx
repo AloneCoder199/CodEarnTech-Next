@@ -2,20 +2,27 @@
 
 import { memo } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck } from "lucide-react";
+import { Code2 } from "lucide-react";
 
-// --- PLACEHOLDER LOGOS DATA (Aap yahan apne real image paths/SVGs daal dena) ---
-const LOGO_CATEGORIES = [
-  { id: 1, name: "Alpha Startup", type: "Startup" },
-  { id: 2, name: "Apex Local Biz", type: "Local Business" },
-  { id: 3, name: "Nexus Enterprise", type: "Client" },
-  { id: 4, name: "Future Tech Lab", type: "Partner" },
-  { id: 5, name: "Vortex SaaS", type: "Startup" },
-  { id: 6, name: "Quantum Systems", type: "Client" },
+// --- REAL TECH STACK — Yeh woh tools hain jo main actually use karta hoon ---
+// Har ek GitHub pe verify ho sakta hai. Koi fake logo nahi.
+const TECH_STACK = [
+  { id: 1, name: "Next.js", type: "Framework" },
+  { id: 2, name: "React", type: "Library" },
+  { id: 3, name: "TypeScript", type: "Language" },
+  { id: 4, name: "Node.js", type: "Runtime" },
+  { id: 5, name: "Tailwind CSS", type: "Styling" },
+  { id: 6, name: "MongoDB", type: "Database" },
+  { id: 7, name: "PostgreSQL", type: "Database" },
+  { id: 8, name: "Prisma", type: "ORM" },
+  { id: 9, name: "OpenAI API", type: "AI" },
+  { id: 10, name: "Stripe", type: "Payments" },
+  { id: 11, name: "Git", type: "Version Control" },
+  { id: 12, name: "Docker", type: "DevOps" },
 ];
 
 // Double the array for seamless infinite looping animation
-const INFINITE_LOGOS = [...LOGO_CATEGORIES, ...LOGO_CATEGORIES];
+const INFINITE_STACK = [...TECH_STACK, ...TECH_STACK];
 
 export const TrustedBy = memo(() => {
   return (
@@ -34,9 +41,9 @@ export const TrustedBy = memo(() => {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary/[0.02] border border-primary/10 mb-3"
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-primary/70" />
+            <Code2 className="w-3.5 h-3.5 text-primary/70" />
             <span className="text-[10px] font-medium tracking-wider text-muted-foreground uppercase">
-              Instant Trust & Credibility
+              Tools I Actually Build With
             </span>
           </motion.div>
           
@@ -47,7 +54,7 @@ export const TrustedBy = memo(() => {
             transition={{ delay: 0.1, duration: 0.5 }}
             className="text-xs sm:text-sm font-medium tracking-wide text-muted-foreground/80 max-w-md"
           >
-            Powering fast-growing startups, local giants, and future visionaries.
+            Modern stack. Real production experience. Not just tutorials.
           </motion.p>
         </div>
 
@@ -66,30 +73,24 @@ export const TrustedBy = memo(() => {
               animate={{ x: ["0%", "-50%"] }}
               transition={{
                 ease: "linear",
-                duration: 25, // Velocity control (Slower = more elegant)
+                duration: 30, // Velocity control (Slower = more elegant)
                 repeat: Infinity,
               }}
-              // Hover karne par marquee smoothly slow down ya pause ho jaye gi
               whileHover={{ animationPlayState: "paused" }}
             >
-              {INFINITE_LOGOS.map((logo, index) => (
+              {INFINITE_STACK.map((tech, index) => (
                 <div
-                  key={`${logo.id}-${index}`}
+                  key={`${tech.id}-${index}`}
                   className="group relative flex items-center justify-center h-14 w-36 sm:w-44 px-4 rounded-xl border border-primary/[0.03] bg-primary/[0.01] dark:bg-neutral-900/20 backdrop-blur-sm transition-all duration-300 hover:border-primary/20 hover:bg-background shadow-[inset_0_1px_1px_rgba(255,255,255,0.02)]"
-                  style={{
-                    // Active soft blue glow trigger on hover
-                    boxShadow: "group-hover:0 0 25px rgba(var(--color-primary), 0.05)",
-                  }}
                 >
-                  {/* Subtle Indicator Tag inside logo card for developer/client view */}
+                  {/* Subtle Indicator Tag inside card */}
                   <span className="absolute top-1 right-2 text-[8px] font-mono tracking-tighter opacity-0 group-hover:opacity-40 transition-opacity text-primary">
-                    {logo.type}
+                    {tech.type}
                   </span>
 
-                  {/* LOGO PLACEHOLDER WRAPPER */}
+                  {/* Tech Name */}
                   <div className="text-sm font-semibold tracking-tight text-muted-foreground/40 group-hover:text-primary/80 transition-all duration-300 transform group-hover:scale-[1.03]">
-                    {/* Janii g, yahan apna <img src="..." /> ya SVG direct replace kar lena */}
-                    {logo.name}
+                    {tech.name}
                   </div>
 
                   {/* Absolute Bottom Soft Line Accent on Hover */}

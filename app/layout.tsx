@@ -1,20 +1,25 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Script from "next/script"; 
+import Script from "next/script";
 import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/hooks/useAuth";
 import { QueryProvider } from "@/providers/query-provider";
 import { Toaster } from "sonner";
 import LayoutWrapper from "@/components/layout/layout-wrapper";
-import { organizationSchema, websiteSchema, localBusinessSchema } from "@/lib/seo-schemas";
+import {
+  organizationSchema,
+  websiteSchema,
+  localBusinessSchema,
+} from "@/lib/seo-schemas";
 import SecurityGuard from "@/components/SecurityGuard";
+import ChatWidget from "@/components/codearn-ai/chat-widget";
 
 // Font Optimization
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-inter',
+  display: "swap",
+  variable: "--font-inter",
 });
 
 export const viewport: Viewport = {
@@ -33,7 +38,8 @@ export const metadata: Metadata = {
     default: "CodEarn | SaaS Development & Software Solutions in Pakistan",
     template: "%s | CodEarn",
   },
-  description: "Leading software company in Samundri, Pakistan. We build scalable SaaS products, custom web applications, and provide practical training with guaranteed internships. 4+ years experience, 3-month project support included.",
+  description:
+    "Leading software company in Samundri, Pakistan. We build scalable SaaS products, custom web applications, and provide practical training with guaranteed internships. 4+ years experience, 3-month project support included.",
   keywords: [
     "SaaS development Pakistan",
     "software company Samundri",
@@ -44,7 +50,7 @@ export const metadata: Metadata = {
     "CodEarn",
     "backend development",
     "data modeling courses",
-    "software training institute"
+    "software training institute",
   ],
   authors: [{ name: "CodEarn", url: "https://www.codearntech.cloud" }],
   creator: "CodEarn",
@@ -71,10 +77,11 @@ export const metadata: Metadata = {
     url: "https://www.codearntech.cloud",
     siteName: "CodEarn",
     title: "CodEarn | SaaS Development & Software Solutions",
-    description: "Transform your ideas into scalable SaaS products. 4+ years experience, practical training with internships, and 3-month project support.",
+    description:
+      "Transform your ideas into scalable SaaS products. 4+ years experience, practical training with internships, and 3-month project support.",
     images: [
       {
-        url: "/og-image.webp", 
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "CodEarn - Software Development Company",
@@ -85,7 +92,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "CodEarn | SaaS Development & Software Solutions",
-    description: "Transform your ideas into scalable SaaS products. Practical training with guaranteed internships.",
+    description:
+      "Transform your ideas into scalable SaaS products. Practical training with guaranteed internships.",
     images: ["/og-image.webp"],
     creator: "@codearntech",
   },
@@ -93,9 +101,7 @@ export const metadata: Metadata = {
     google: "_GZUOBwhCQ8T5t1ME4Xg46wwwo3o_WznYgcmBKM2PbY",
   },
   icons: {
-    icon: [
-      { url: "/logo.webp", type: "image/webp" },
-    ],
+    icon: [{ url: "/logo.webp", type: "image/webp" }],
     shortcut: ["/logo.webp"],
     apple: [
       { url: "/logo.webp", sizes: "180x180", type: "image/webp" },
@@ -117,11 +123,15 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ 
-            __html: JSON.stringify([organizationSchema, websiteSchema, localBusinessSchema]) 
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              organizationSchema,
+              websiteSchema,
+              localBusinessSchema,
+            ]),
           }}
         />
-        
+
         {/* SNAPCHAT PIXEL - NEXT.JS OPTIMIZED */}
         <Script id="snapchat-pixel" strategy="afterInteractive">
           {`
@@ -140,7 +150,10 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} font-sans antialiased`} suppressHydrationWarning>
+      <body
+        className={`${inter.variable} font-sans antialiased`}
+        suppressHydrationWarning
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -149,9 +162,16 @@ export default function RootLayout({
         >
           <AuthProvider>
             <QueryProvider>
-              <SecurityGuard/>
+              <SecurityGuard />
               <LayoutWrapper>{children}</LayoutWrapper>
-               <Toaster position="top-center" richColors closeButton />
+
+              {/* ============================================================
+                  CodEarn AI — Floating Chat Widget
+                  Available on every page (public + authenticated)
+              ============================================================ */}
+              <ChatWidget />
+
+              <Toaster position="top-center" richColors closeButton />
             </QueryProvider>
           </AuthProvider>
         </ThemeProvider>

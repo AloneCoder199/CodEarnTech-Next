@@ -615,8 +615,8 @@ const [showRegisterLink, setShowRegisterLink] = useState(false);
             Protected by enterprise-grade encryption
           </p>
           <div className="mt-2 flex items-center justify-center gap-4 text-xs text-muted-foreground">
-            <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link href="/security" className="hover:text-foreground transition-colors">Security</Link>
+            <Link href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
+            
             <Link href="/help" className="hover:text-foreground transition-colors">Help Center</Link>
           </div>
         </motion.div>

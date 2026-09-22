@@ -18,7 +18,7 @@ const SOLUTIONS = [
     label: "SaaS Infrastructure",
     actionTitle: "Multi-Tenant Subscription Engines",
     description: "We architect decoupled multi-tenant pipelines featuring ironclad data isolation, dynamic database pooling, and global subscription synchronization layer engineered for infinite user scaling.",
-    metrics: "99.99% Fault Tolerance // <45ms Core Isolation Latency",
+    metrics: "",
     features: ["Dynamic Tenant Provisioning", "Row-Level Security (RLS)", "Stripe Matrix Integration"],
     visualType: "saas"
   },
@@ -36,7 +36,7 @@ const SOLUTIONS = [
     label: "Web Platforms",
     actionTitle: "High-Authority Digital Ecosystems",
     description: "Web deployment engineered as high-velocity conversion pipelines. Blindingly fast edge-rendered architectures optimized for deep SEO dominance, semantic structure, and cinematic layouts.",
-    metrics: "100% Core Web Vitals Score // Optimized Conversion Matrix",
+    metrics: "Performance-focused, SEO-ready architecture",
     features: ["Next.js Edge Optimization", "Server-Side Generation (ISR)", "Global Content Caching"],
     visualType: "web"
   },

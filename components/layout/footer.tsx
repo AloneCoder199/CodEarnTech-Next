@@ -54,6 +54,7 @@ const footerLinks: Record<string, FooterSection> = {
       { name: "Products", href: "/products", desc: "Innovative digital tools" },
       { name: "Blog", href: "/blogs", desc: "Latest tech insights & updates" },
       { name: "Contact Us", href: "/contact", desc: "Let's talk and build together" },
+      { name: "Verify Certificate", href: "/verify", desc: "Verify Your Student Certificate" },
     ],
   },
   resources: {
@@ -76,7 +77,7 @@ const footerLinks: Record<string, FooterSection> = {
 };
 
 const trustBadges = [
-  { icon: Shield, label: "Enterprise Security", desc: "SOC 2 compliant" },
+  { icon: Shield, label: "Enterprise Security", desc: "" },
   { icon: Zap, label: "High Performance", desc: "99.9% uptime" },
   { icon: Clock, label: "Fast Delivery", desc: "Agile methodology" },
   { icon: HeadphonesIcon, label: "24/7 Support", desc: "Always available" },

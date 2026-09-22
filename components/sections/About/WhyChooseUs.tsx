@@ -126,14 +126,14 @@ const VSCard = memo(function VSCard({
 
       {/* Score bar */}
       <div className="relative mt-6 pt-6 border-t border-border/50">
-        <div className="flex items-center justify-between text-xs mb-2">
+        {/* <div className="flex items-center justify-between text-xs mb-2">
           <span className={isUs ? 'text-primary font-semibold' : 'text-muted-foreground'}>
             {isUs ? 'Trust Score' : 'Risk Level'}
           </span>
           <span className={isUs ? 'text-primary font-bold' : 'text-muted-foreground'}>
             {isUs ? '98%' : 'High'}
           </span>
-        </div>
+        </div> */}
         <div className="h-2 rounded-full bg-muted overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
@@ -412,7 +412,7 @@ export function WhyChooseUsSection() {
           className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {[
-            { value: "100+", label: "Projects Won", sub: "0 abandoned" },
+            // { value: "100+", label: "Projects Won", sub: "0 abandoned" },
             { value: "4hrs", label: "Avg Response", sub: "Not 48" },
             { value: "30", label: "Day Guarantee", sub: "Not 'soon'" },
             { value: "1", label: "Founder Direct", sub: "No layers" }
