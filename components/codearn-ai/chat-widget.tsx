@@ -68,8 +68,12 @@ export default function ChatWidget() {
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
             onClick={handleOpen}
             aria-label="Open CodEarn AI"
-            className="group fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl shadow-primary/30 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/40 md:bottom-6 md:right-6 md:h-15 md:w-15"
+            className="group fixed bottom-20 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-xl shadow-primary/30 transition-all hover:scale-105 hover:shadow-2xl hover:shadow-primary/40 md:bottom-6 md:right-6 md:h-15 md:w-15"
+            style={{
+  bottom: "calc(5rem + env(safe-area-inset-bottom, 0px))",
+}}
           >
+            
             {/* Pulse ring */}
             {!hasOpenedOnce && (
               <span className="absolute inset-0 animate-ping rounded-full bg-primary/40" />

@@ -9,6 +9,7 @@ import { training } from "./training";
 import { contact } from "./contact";
 import { policies } from "./policies";
 import { faqs } from "./faqs";
+import { routes, externalLinks } from "./routes";   // ← NAYA
 
 /**
  * CodEarn AI Knowledge Base — Single Source of Truth
@@ -26,6 +27,8 @@ export const codearnKnowledge = {
   contact,
   policies,
   faqs,
+  routes,           // ← NAYA
+  externalLinks,    // ← NAYA
 };
 
 export type CodEarnKnowledge = typeof codearnKnowledge;

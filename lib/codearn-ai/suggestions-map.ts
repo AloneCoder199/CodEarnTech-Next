@@ -20,6 +20,30 @@ const RULES: SuggestionRule[] = [
     ],
   },
   {
+    keywords: ["page", "site", "website", "link"],
+    followUps: [
+      "Show me the products page",
+      "How can I contact CodEarn?",
+      "Where can I read the founder story?",
+    ],
+  },
+  {
+    keywords: ["learn", "training", "course"],
+    followUps: [
+      "What training programs does CodEarn offer?",
+      "How do I enroll?",
+      "Where can I see the training page?",
+    ],
+  },
+  {
+    keywords: ["blog", "article", "read"],
+    followUps: [
+      "What topics does the blog cover?",
+      "Where can I read the blog?",
+      "Who writes the blog posts?",
+    ],
+  },
+  {
     keywords: ["founder", "muhammad bilal", "bilal"],
     followUps: [
       "What is Muhammad Bilal's background?",
